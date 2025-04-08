@@ -1,0 +1,18 @@
+* {
+	box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+	height: 100%;
+	background-color: #f1efef;
+	color: #383422;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: #383422;
+}
