@@ -1,13 +1,124 @@
 {
-	"users": [],
+	"users": [
+		{
+			"id": "0",
+			"login": "zhenya@mail.ru",
+			"password": "zhenya123",
+			"role_id": 0
+		},
+		{
+			"id": "1",
+			"login": "katya@mail.ru",
+			"password": "katya123",
+			"role_id": 1
+		}
+	],
+	"roles": [
+		{
+			"name": "Администратор",
+			"id": 0
+		},
+		{
+			"name": "Модератор",
+			"id": 1
+		},
+		{
+			"name": "Клиент",
+			"id": 2
+		},
+		{
+			"name": "Гость",
+			"id": 3
+		}
+	],
 	"products": [
 		{
 			"id": "001",
 			"name": "Тарелки",
-			"quantity": "10",
-			"price": "1000",
-			"image": 0,
+			"amount": 10,
+			"price": "1 000",
+			"image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-MPZ5RSa_-aFQNN2Ig_cUamJGcEhWGWwe_A&s",
 			"category": "5"
+		},
+		{
+			"id": "011",
+			"name": "Кружки",
+			"amount": 10,
+			"price": "1 000",
+			"image": "https://jz9czo0xs6.ru.scalesta-cdn.com/82mYT141oCZpda6YyS6XqHo8guM=/filters:format(webp)/https%3A%2F%2Fcomplexbar.ru%2Fimages%2Fblog%2F259%2Fkakie-bivaut-kruzhki-chaya0.jpg",
+			"category": "5"
+		},
+		{
+			"id": "002",
+			"name": "Комплект постельного белья",
+			"amount": 10,
+			"price": "4 500",
+			"image": "https://shop-cdn1-2.vigbo.tech/shops/77945/products/22313956/images/3-96bbc05ca581fed8632d0e8ee8bb9dfd.jpg",
+			"category": "4"
+		},
+		{
+			"id": "003",
+			"name": "Набор полотенец",
+			"amount": 10,
+			"price": "1 000",
+			"image": "https://rrbook.ru/wa-data/public/shop/products/32/26/2632/images/22423/22423.750@2x.jpeg",
+			"category": "3"
+		},
+		{
+			"id": "004",
+			"name": "Ковер",
+			"amount": 10,
+			"price": "5 000",
+			"image": "https://hoff.ru/upload/iblock/6a9/6a9c649a823d5e3f74b20f7e05ca8e5e.jpg",
+			"category": "2"
+		},
+		{
+			"id": "005",
+			"name": "Аромадифузор Пион",
+			"amount": 10,
+			"price": "900",
+			"image": "https://78.ru/images/uploads/media/2025/1/16/1737042603522.jpg",
+			"category": "1"
+		},
+		{
+			"id": "006",
+			"name": "Свечи ручной работы Ваниль",
+			"amount": 10,
+			"price": "2 000",
+			"image": "https://img.freepik.com/premium-photo/handmade-scented-candles-glass-with-wooden-lid-soy-wax-candles-with-wooden-wick_136404-1419.jpg",
+			"category": "6"
+		},
+		{
+			"id": "007",
+			"name": "Игрушка 'Муся'",
+			"amount": 10,
+			"price": "500",
+			"image": "https://oozor.ru/images/detailed/648/0a704faee46d24b940a00a8d5df326a3.jpg",
+			"category": "7"
+		},
+		{
+			"id": "008",
+			"name": "Кошачья лежанка",
+			"amount": 10,
+			"price": "3 000",
+			"image": "https://storage-api.petstory.ru/resize/1000x1000x80/ba/8c/2c/ba8c2cfb00cb4234b63507d530f7df18.jpeg",
+			"category": "8"
+		},
+		{
+			"id": "009",
+			"name": "Стеклоочиститель",
+			"amount": 10,
+			"price": "600",
+			"image": "https://leso-torg.ru/upload/iblock/ebd/p8lowtv3aycd6qf45f5qtaw9cukf0tq2.png",
+			"category": "9"
+		},
+		{
+			"id": "010",
+			"name": "Шторы кухонные",
+			"amount": 10,
+			"price": "20 000",
+			"image": "https://blog.mebelion.ru/wp-content/uploads/2020/06/3-4.jpg",
+			"category": "10"
 		}
 	],
 	"categories": [
@@ -16,8 +127,20 @@
 			"name": "Аромадиффузоры"
 		},
 		{
+			"id": "14",
+			"name": "Декор"
+		},
+		{
 			"id": "2",
 			"name": "Ковры"
+		},
+		{
+			"id": "12",
+			"name": "Мебель"
+		},
+		{
+			"id": "13",
+			"name": "Контейнеры"
 		},
 		{
 			"id": "3",
@@ -51,5 +174,7 @@
 			"id": "10",
 			"name": "Шторы"
 		}
-	]
+	],
+	"basket": [],
+	"sessions": []
 }

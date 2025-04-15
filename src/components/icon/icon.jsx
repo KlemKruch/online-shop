@@ -11,14 +11,14 @@ const IconContainer = ({ className, id, children, ...props }) => {
 
 export const Icon = styled(IconContainer)`
 	margin: ${({ margin = '50px 10px' }) => margin};
-	cursor: pointer;
+	cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 	font-weight: 100;
 	font-size: 15px;
-	color: ${({ color = '#5c5740' }) => color};
+	color: ${({ disabled }) => (disabled ? '#ccc' : ' #5c5740')};
 	text-align: center;
 
 	&:hover {
-		color: #917070;
+		color: ${({ disabled }) => (disabled ? '#ccc' : ' #917070')};
 	}
 
 	& i {

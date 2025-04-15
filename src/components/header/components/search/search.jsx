@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const SearchContainer = ({ className }) => {
 	return (
 		<div className={className}>
-			<Input height="34px" width="100%" fontSize="17px" border="1px solid white" />
+			<Input height="34px" width="100%" radius="20px" border="1px solid white" />
 			<button>
 				<Icon id="fa-search" margin="0" />
 			</button>

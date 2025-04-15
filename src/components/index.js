@@ -3,3 +3,4 @@ export * from './icon/icon';
 export * from './input/input';
 export * from './h2/h2';
 export * from './button/button';
+export * from './main-block/main-block';

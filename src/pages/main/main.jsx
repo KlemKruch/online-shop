@@ -1,38 +1,82 @@
-import { Button, H2, Icon } from '../../components';
-import { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Icon } from '../../components';
+import { ProductCard, Category } from './components';
+import { fetchCategories, fetchProducts } from '../../bff/operations';
 import styled from 'styled-components';
 
 const MainContainer = ({ className }) => {
-	const navigate = useNavigate();
-	useEffect(() => {}, []);
+	const [categories, setCategories] = useState([]);
+	const [productsFromServer, setProductsFromServer] = useState([]);
+	const [sortProductsFromCategory, setSortProductsFromCategory] = useState([]);
+	const [sortProductsFromAlphabetically, setSortProductsFromAlphabetically] = useState([]);
+	const [isSortFromCategory, setIsSortFromCategory] = useState(false);
+	const [isSortFromAlphabetically, setIsSortFromAlphabetically] = useState(false);
+
+	useEffect(() => {
+		fetchCategories().then(({ res }) => setCategories(res));
+		fetchProducts().then(({ res }) => setProductsFromServer(res));
+	}, []);
+
+	const sortProductFromCategory = (idCategory) => {
+		setIsSortFromAlphabetically(false);
+
+		const sortProducts = productsFromServer.filter(({ category }) => category === idCategory);
+
+		setSortProductsFromCategory(sortProducts);
+		setIsSortFromCategory(true);
+	};
+
+	const sortProductsAlphabetically = () => {
+		let productsForSorting;
+		if (!isSortFromCategory) {
+			productsForSorting = productsFromServer;
+		} else {
+			productsForSorting = sortProductsFromCategory;
+		}
+
+		const products = productsForSorting.slice().sort((a, b) => {
+			if (a.name.toLowerCase() < b.name.toLowerCase()) {
+				return -1;
+			}
+			if (a.name.toLowerCase() > b.name.toLowerCase()) {
+				return 1;
+			}
+
+			return 0;
+		});
+		setSortProductsFromAlphabetically(products);
+		setIsSortFromAlphabetically(true);
+	};
+
+	const resetAllSorting = () => {
+		setIsSortFromCategory(false);
+		setIsSortFromAlphabetically(false);
+	};
+
+	const products = isSortFromAlphabetically
+		? sortProductsFromAlphabetically
+		: isSortFromCategory
+			? sortProductsFromCategory
+			: productsFromServer;
 
 	return (
 		<main className={className}>
 			<div className="sorting">
 				<h5></h5>
-				<Icon id="fa-sort-amount-desc" margin="0 50px 0 0" fontSize="15px" />
+				<Icon id="fa-sort-amount-desc" margin="0 50px 0 0" fontSize="15px" onClick={() => sortProductsAlphabetically()} />
 			</div>
 			<div className="product-categories">
-				<h5 className="categories-name">Категории</h5>
+				<h5 className="categories-name" onClick={() => resetAllSorting()}>
+					Категории
+				</h5>
+				{categories.map(({ name, id }) => (
+					<Category key={id} name={name} onClick={() => sortProductFromCategory(id)} />
+				))}
 			</div>
 			<div className="products-block">
-				<div className="product">
-					<div className="image"></div>
-					<div className="name-and-price">
-						<H2 margin="0 0 60px 0" fontSize="20px" color="#5c5740" children="Аромадиффузор" />
-						<div className="prise-and-buttons">
-							<div className="price">100₽</div>
-							<Icon id="fa-shopping-basket" margin="49px 0 0 10px" />
-						</div>
-					</div>
-					<Button children="Открыть карточку" margin="128px 0 0 0" onClick={() => navigate('/product')} />
-				</div>
-				<div className="product">Карточка товара</div>
-				<div className="product">Карточка товара</div>
-				<div className="product">Карточка товара</div>
-				<div className="product">Карточка товара</div>
-				<div className="product">Карточка товара</div>
+				{products.map(({ id, name, price, amount, image }) => (
+					<ProductCard key={id} name={name} price={price} amount={amount} image={image} />
+				))}
 			</div>
 		</main>
 	);
@@ -47,16 +91,16 @@ export const Main = styled(MainContainer)`
 
 	& h5 {
 		font-weight: 200;
-		font-size: 14px;
+		font-size: 16px;
 		margin: 0 10px;
+		cursor: pointer;
 	}
 
 	& .product-categories {
 		background-color: white;
-		border: 1px solid white;
 		border-radius: 7px;
 		width: 200px;
-		height: 550px;
+		height: 528px;
 		text-align: center;
 		position: fixed;
 		margin-top: 10px;
@@ -72,45 +116,5 @@ export const Main = styled(MainContainer)`
 		display: flex;
 		flex-direction: column;
 		align-items: flex-end;
-	}
-
-	& .product {
-		display: flex;
-		background-color: white;
-		margin: 10px 0 20px 50px;
-		border-radius: 7px;
-		padding: 15px 15px;
-		height: 200px;
-		width: 850px;
-	}
-
-	& .image {
-		width: 260px;
-		height: 160px;
-		margin: 5px;
-		border-radius: 7px;
-	}
-
-	& .name-and-price {
-		width: 300px;
-		height: 160px;
-		margin: 5px 20px;
-	}
-
-	& .prise-and-buttons {
-		display: flex;
-		height: 75px;
-	}
-
-	& .price {
-		margin-top: 43px;
-		padding: 6px 0;
-		width: 80px;
-		height: 35px;
-		font-size: 18px;
-		color: #5c5740;
-		background-color: #cad6c4;
-		border-radius: 7px;
-		text-align: center;
 	}
 `;

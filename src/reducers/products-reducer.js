@@ -1,13 +1,13 @@
 const initialProductsState = {
 	id: '',
 	name: '',
-	quantity: '',
+	amount: null,
 	price: '',
-	image: '',
+	image: null,
 	category: '',
 };
 
-export const ProductsReducer = (state = initialProductsState, action) => {
+export const productsReducer = (state = initialProductsState, action) => {
 	switch (action.type) {
 		default:
 			return state;

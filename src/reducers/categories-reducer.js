@@ -1,9 +1,8 @@
 const initialCategoriesState = {
-	id: '',
 	name: '',
 };
 
-export const CategoriesReducer = (state = initialCategoriesState, action) => {
+export const categoriesReducer = (state = initialCategoriesState, action) => {
 	switch (action.type) {
 		default:
 			return state;

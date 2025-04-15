@@ -1,15 +1,15 @@
-import { Button, H2, Icon } from '../../components';
+import { Button, H2, Icon, MainBlock } from '../../components';
 import styled from 'styled-components';
 
 const BasketContainer = ({ className }) => {
 	return (
-		<main className={className}>
+		<MainBlock className={className}>
 			<div className="block-products">
 				<div className="product-card">
 					<div className="image"></div>
 					<div className="information">
 						<div>
-							<H2 margin="0 0 40px 15px" fontSize="20px" color="#5c5740" children="Аромадиффузор" />
+							<H2 margin="0 0 40px 15px" fontsize="20px" children="Аромадиффузор" />
 							<div className="text">Цена:</div>
 							<div className="text">Количество:</div>
 						</div>
@@ -20,7 +20,7 @@ const BasketContainer = ({ className }) => {
 			</div>
 			<div className="basket-info">
 				<div className="quantity-of-products">
-					<H2 fontSize="20px" margin="30px 40px 0 15px" color="rgb(58, 55, 39)" children="Ваша корзина:" />
+					<H2 margin="30px 40px 0 15px" color="rgb(58, 55, 39)" children="Ваша корзина:" />
 					<div className="text">Количество товаров</div>
 				</div>
 				<div className="block-sum-and-registration">
@@ -29,20 +29,11 @@ const BasketContainer = ({ className }) => {
 					<Button margin="20px 10px" children="Оформить заказ" />
 				</div>
 			</div>
-		</main>
+		</MainBlock>
 	);
 };
 
 export const Basket = styled(BasketContainer)`
-	display: flex;
-	justify-content: space-between;
-	margin: 20px 0;
-	background-color: white;
-	width: 100%;
-	height: 550px;
-	border-radius: 7px;
-	color: rgb(58, 55, 39);
-
 	& .block-products {
 		width: 100%;
 		margin: 20px 15px;

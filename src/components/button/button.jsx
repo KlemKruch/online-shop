@@ -11,6 +11,7 @@ const ButtonContainer = ({ className, children, ...props }) => {
 export const Button = styled(ButtonContainer)`
 	margin: ${({ margin }) => margin};
 	background-color: ${({ backgroundcolor = '#c6b4b4' }) => backgroundcolor};
+	type: ${({ type }) => type};
 	border: none;
 	width: 200px;
 	height: 40px;

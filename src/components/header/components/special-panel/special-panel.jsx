@@ -1,19 +1,43 @@
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { Icon } from '../../../icon/icon';
+import { selectUserLogin, selectUserRole, selectSession } from '../../../../selectors';
+import { ROLE } from '../../../../bff/constants';
+import { logout } from '../../../../actions';
 import styled from 'styled-components';
 
 const SpecialPanelContainer = ({ className }) => {
+	const role = useSelector(selectUserRole);
+	const login = useSelector(selectUserLogin);
+	const session = useSelector(selectSession);
+	const dispatch = useDispatch();
+
+	const onLogout = () => {
+		dispatch(logout(session));
+
+		sessionStorage.removeItem('userData');
+	};
+
 	return (
 		<div className={className}>
 			<Link to="/basket">
 				<Icon id="fa-shopping-basket" children="Корзина" />
 			</Link>
-			<Link to="/registration">
-				<Icon id="fa-user-circle-o" children="Регистрация" />
-			</Link>
-			<Link to="/authorization">
-				<Icon id="fa-sign-in" children="Войти" />
-			</Link>
+			{role === ROLE.GUEST ? (
+				<>
+					<Link to="/registration">
+						<Icon id="fa-user-circle-o" children="Регистрация" />
+					</Link>
+					<Link to="/authorization">
+						<Icon id="fa-sign-in" children="Войти" />
+					</Link>
+				</>
+			) : (
+				<>
+					<Icon id="fa-user-circle-o" children={login} />
+					<Icon id="fa-sign-in" children="Выйти" onClick={onLogout} />
+				</>
+			)}
 		</div>
 	);
 };

@@ -1,10 +1,9 @@
-import { H2 } from '../../components';
-import { Button } from '../../components/button/button';
+import { MainBlock, H2, Button } from '../../../../components';
 import styled from 'styled-components';
 
 const ProductContainer = ({ className }) => {
 	return (
-		<main className={className}>
+		<MainBlock className={className}>
 			<div className="image"></div>
 			<div className="product-information">
 				<H2 children="Аромадиффузор" margin="0 0 20px 0" />
@@ -13,33 +12,25 @@ const ProductContainer = ({ className }) => {
 				<div className="text">Цена: 100₽</div>
 				<Button margin="0 0 0 350px" children="Купить" />
 			</div>
-		</main>
+		</MainBlock>
 	);
 };
 
 export const Product = styled(ProductContainer)`
-	display: flex;
-	justify-content: space-between;
-	margin: 20px 0;
-	border-radius: 7px;
-	padding: 40px 20px;
-	height: 500px;
-	width: 1100px;
-	background-color: white;
-
 	& .image {
 		width: 40%;
 		border-radius: 7px;
 		background-color: black;
-		margin: 0 70px 0 0;
+		margin: 50px 70px 50px 30px;
 	}
 
 	& .product-information {
 		width: 565px;
+		margin: 50px 0 50px 0;
 	}
 
 	& .product-description {
-		margin-bottom: 20px;
+		margin: 20px 0;
 		border-radius: 7px;
 		background-color: grey;
 		width: 90%;
