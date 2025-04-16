@@ -8,8 +8,8 @@ import { useDispatch, useStore, useSelector } from 'react-redux';
 import { Input, H2, Button } from '../../components';
 import { setUser } from '../../actions';
 import { selectUserRole } from '../../selectors';
-import styled from 'styled-components';
 import { ROLE } from '../../bff/constants';
+import styled from 'styled-components';
 
 const authFormScheme = yup.object().shape({
 	login: yup
@@ -41,20 +41,19 @@ const AuthorizationContainer = ({ className }) => {
 	});
 
 	const [serverError, setServerError] = useState('');
+	const role = useSelector(selectUserRole);
 
 	const dispatch = useDispatch();
 	const store = useStore();
 
-	const role = useSelector(selectUserRole);
-
 	useEffect(() => {
-		let currentOnLogout = store.getState().app.wasLogout;
+		let currentWasLogout = store.getState().app.wasLogout;
 
 		return store.subscribe(() => {
-			let previousOnLogout = currentOnLogout;
-			currentOnLogout = store.getState().app.wasLogout;
+			let previousWasLogout = currentWasLogout;
+			currentWasLogout = store.getState().app.wasLogout;
 
-			if (currentOnLogout !== previousOnLogout) {
+			if (currentWasLogout !== previousWasLogout) {
 				reset();
 			}
 		});

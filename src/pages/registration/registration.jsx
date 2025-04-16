@@ -1,9 +1,14 @@
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Navigate } from 'react-router-dom';
 import { server } from '../../bff';
-import { useState } from 'react';
 import { Input, H2, Button } from '../../components';
+import { selectUserRole } from '../../selectors';
+import { ROLE } from '../../bff/constants';
+import { setUser } from '../../actions';
 import styled from 'styled-components';
 
 const regFormScheme = yup.object().shape({
@@ -19,6 +24,10 @@ const regFormScheme = yup.object().shape({
 		.matches(/^[\w@_#%$]+$/, 'Неверно заполнен пароль. Допускаются буквы, цифры и знаки: @ _ # % $.')
 		.min(5, 'Неверно заполнен пароль. Должно быть не менее 5 символов.')
 		.max(30, 'Неверно заполнен пароль. Должно быть не более 30 символов.'),
+	passcheck: yup
+		.string()
+		.required('Заполните поле повтор пароля')
+		.oneOf([yup.ref('password'), null], 'Пароли не совпадают'),
 });
 
 const RegistrationContainer = ({ className }) => {
@@ -30,11 +39,14 @@ const RegistrationContainer = ({ className }) => {
 		defaultValues: {
 			login: '',
 			password: '',
+			passcheck: '',
 		},
 		resolver: yupResolver(regFormScheme),
 	});
 
 	const [serverError, setServerError] = useState(null);
+	const role = useSelector(selectUserRole);
+	const dispatch = useDispatch();
 
 	const onSubmit = ({ login, password }) => {
 		server.registration(login, password).then(({ error, res }) => {
@@ -42,13 +54,18 @@ const RegistrationContainer = ({ className }) => {
 				setServerError(`Ошибка сервера. ${error}`);
 			}
 
-			return res;
+			dispatch(setUser(res));
+			sessionStorage.setItem('userData', JSON.stringify(res));
 		});
 	};
 
-	const formError = errors?.login?.message || errors?.password?.message;
+	const formError = errors?.login?.message || errors?.password?.message || errors?.passcheck?.message;
 
 	const errorMessage = formError || serverError;
+
+	if (role !== ROLE.GUEST) {
+		return <Navigate to="/" />;
+	}
 
 	return (
 		<main className={className}>
@@ -70,7 +87,14 @@ const RegistrationContainer = ({ className }) => {
 						onChange: () => setServerError(null),
 					})}
 				/>
-				<Input type="password" margin="0 0 20px 0" placeholder="Повторите пароль..." />
+				<Input
+					type="password"
+					margin="0 0 20px 0"
+					placeholder="Повторите пароль..."
+					{...register('passcheck', {
+						onChange: () => setServerError(null),
+					})}
+				/>
 				<Button type="submit" disabled={!!formError}>
 					Регистрация
 				</Button>

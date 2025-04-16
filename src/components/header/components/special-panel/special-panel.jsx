@@ -20,9 +20,11 @@ const SpecialPanelContainer = ({ className }) => {
 
 	return (
 		<div className={className}>
-			<Link to="/basket">
-				<Icon id="fa-shopping-basket" children="Корзина" />
-			</Link>
+			{role !== ROLE.GUEST ? (
+				<Link to="/basket">
+					<Icon id="fa-shopping-basket" children="Корзина" />
+				</Link>
+			) : null}
 			{role === ROLE.GUEST ? (
 				<>
 					<Link to="/registration">

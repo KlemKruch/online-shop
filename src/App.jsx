@@ -1,7 +1,9 @@
+import { useLayoutEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 import { Header } from './components';
-import { Authorization, Basket, Main, Registration } from './pages';
-import { Product } from './pages/main/components';
+import { Authorization, Basket, Main, Registration, ProductCard } from './pages';
+import { setUser } from './actions';
 import styled from 'styled-components';
 
 const AppColumn = styled.div`
@@ -17,7 +19,26 @@ const Page = styled.div`
 	padding: 120px 0 0;
 `;
 
-export const App = () => {
+export const OnlineStore = () => {
+	const dispatch = useDispatch();
+
+	useLayoutEffect(() => {
+		const currentUserDataJSON = sessionStorage.getItem('userData');
+
+		if (!currentUserDataJSON) {
+			return;
+		}
+
+		const currentUserData = JSON.parse(currentUserDataJSON);
+
+		dispatch(
+			setUser({
+				...currentUserData,
+				roleId: Number(currentUserData.roleId),
+			}),
+		);
+	}, [dispatch]);
+
 	return (
 		<AppColumn>
 			<Header />
@@ -26,7 +47,7 @@ export const App = () => {
 					<Route path="/" element={<Main />} />
 					<Route path="/authorization" element={<Authorization />} />
 					<Route path="/registration" element={<Registration />} />
-					<Route path="/product/:id" element={<Product />} />
+					<Route path="/product/:id" element={<ProductCard />} />
 					<Route path="/basket" element={<Basket />} />
 					<Route path="/product/editing" element={<div>Удаление/редактирование</div>} />
 					<Route path="/users" element={<div>Клиенты</div>} />

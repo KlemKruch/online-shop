@@ -13,8 +13,8 @@ export const Button = styled(ButtonContainer)`
 	background-color: ${({ backgroundcolor = '#c6b4b4' }) => backgroundcolor};
 	type: ${({ type }) => type};
 	border: none;
-	width: 200px;
-	height: 40px;
+	width: ${({ width = '200px' }) => width};
+	height: ${({ height = '40px' }) => height};
 	border-radius: 30px;
 	color: #f9f8f3;
 	font-weight: 100;

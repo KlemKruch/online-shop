@@ -9,6 +9,6 @@ export const addUser = (login, password) =>
 		body: JSON.stringify({
 			login,
 			password,
-			role: ROLE.CLIENT,
+			role_id: ROLE.CLIENT,
 		}),
-	}).then((loadedUser) => loadedUser);
+	}).then((createdUser) => createdUser.json());

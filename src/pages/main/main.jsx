@@ -74,8 +74,8 @@ const MainContainer = ({ className }) => {
 				))}
 			</div>
 			<div className="products-block">
-				{products.map(({ id, name, price, amount, image }) => (
-					<ProductCard key={id} name={name} price={price} amount={amount} image={image} />
+				{products.map(({ id, name, price, amount, image, category }) => (
+					<ProductCard key={id} id={id} name={name} price={price} amount={amount} image={image} category={category} />
 				))}
 			</div>
 		</main>
@@ -114,7 +114,7 @@ export const Main = styled(MainContainer)`
 
 	& .products-block {
 		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
+		flex-wrap: wrap;
+		margin-left: 200px;
 	}
 `;
