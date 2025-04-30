@@ -10,7 +10,6 @@ export const MainBlock = styled(MainBlockContainer)`
 	display: flex;
 	background-color: white;
 	width: 100%;
-	height: 550px;
 	border-radius: 7px;
 	color: rgb(58, 55, 39);
 `;

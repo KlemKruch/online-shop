@@ -10,5 +10,6 @@ export const addUser = (login, password) =>
 			login,
 			password,
 			role_id: ROLE.CLIENT,
+			basket: [],
 		}),
 	}).then((createdUser) => createdUser.json());

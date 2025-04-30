@@ -3,5 +3,8 @@ export * from './action-type';
 export * from './set-user';
 export * from './logout';
 export * from './add-to-basket';
+export * from './delete-from-basket';
 export * from './set-product-data';
 export * from './loaded-product-async';
+export * from './increase-amount';
+export * from './set-is-loading';

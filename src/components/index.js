@@ -4,3 +4,7 @@ export * from './input/input';
 export * from './h2/h2';
 export * from './button/button';
 export * from './main-block/main-block';
+export * from './error-message/error-message';
+export * from './basket-buttons/basket-buttons';
+export * from './loader/loader';
+export * from './access-denied/access-denied';

@@ -1,10 +1,18 @@
 import { useEffect, useState } from 'react';
-import { Icon } from '../../components';
+import { useDispatch, useSelector } from 'react-redux';
+import { Icon, Loader } from '../../components';
 import { ProductCard, Category } from './components';
 import { fetchCategories, fetchProducts } from '../../bff/operations';
+import { sortAlphabetically, sortByCategory } from '../../utils';
+import { setIsLoading } from '../../actions';
+import { selectIsLoading } from '../../selectors';
 import styled from 'styled-components';
 
 const MainContainer = ({ className }) => {
+	const isLoading = useSelector(selectIsLoading);
+
+	const dispatch = useDispatch();
+
 	const [categories, setCategories] = useState([]);
 	const [productsFromServer, setProductsFromServer] = useState([]);
 	const [sortProductsFromCategory, setSortProductsFromCategory] = useState([]);
@@ -15,36 +23,27 @@ const MainContainer = ({ className }) => {
 	useEffect(() => {
 		fetchCategories().then(({ res }) => setCategories(res));
 		fetchProducts().then(({ res }) => setProductsFromServer(res));
+
+		dispatch(setIsLoading(false));
 	}, []);
 
 	const sortProductFromCategory = (idCategory) => {
 		setIsSortFromAlphabetically(false);
 
-		const sortProducts = productsFromServer.filter(({ category }) => category === idCategory);
-
-		setSortProductsFromCategory(sortProducts);
+		setSortProductsFromCategory(sortByCategory(productsFromServer, idCategory));
 		setIsSortFromCategory(true);
 	};
 
 	const sortProductsAlphabetically = () => {
-		let productsForSorting;
+		let arrayForSorting;
+
 		if (!isSortFromCategory) {
-			productsForSorting = productsFromServer;
+			arrayForSorting = productsFromServer;
 		} else {
-			productsForSorting = sortProductsFromCategory;
+			arrayForSorting = sortProductsFromCategory;
 		}
 
-		const products = productsForSorting.slice().sort((a, b) => {
-			if (a.name.toLowerCase() < b.name.toLowerCase()) {
-				return -1;
-			}
-			if (a.name.toLowerCase() > b.name.toLowerCase()) {
-				return 1;
-			}
-
-			return 0;
-		});
-		setSortProductsFromAlphabetically(products);
+		setSortProductsFromAlphabetically(sortAlphabetically(arrayForSorting));
 		setIsSortFromAlphabetically(true);
 	};
 
@@ -59,10 +58,11 @@ const MainContainer = ({ className }) => {
 			? sortProductsFromCategory
 			: productsFromServer;
 
-	return (
+	return isLoading ? (
+		<Loader />
+	) : (
 		<main className={className}>
 			<div className="sorting">
-				<h5></h5>
 				<Icon id="fa-sort-amount-desc" margin="0 50px 0 0" fontSize="15px" onClick={() => sortProductsAlphabetically()} />
 			</div>
 			<div className="product-categories">
@@ -74,8 +74,8 @@ const MainContainer = ({ className }) => {
 				))}
 			</div>
 			<div className="products-block">
-				{products.map(({ id, name, price, amount, image, category }) => (
-					<ProductCard key={id} id={id} name={name} price={price} amount={amount} image={image} category={category} />
+				{products.map((product) => (
+					<ProductCard key={product.id} product={product} />
 				))}
 			</div>
 		</main>

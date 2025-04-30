@@ -11,7 +11,7 @@ export const Input = styled(InputContainer)`
 	margin: ${({ margin }) => margin};
 	border-radius: ${({ radius = '10px' }) => radius};
 	type: ${({ type }) => type};
-	border: 1px solid white;
+	border: ${({ border = '1px solid white' }) => border};
 	padding: 5px 15px;
 	outline: none;
 	color: #5c5740;

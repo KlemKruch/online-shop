@@ -1,22 +1,33 @@
-import { Button, H2, Icon, MainBlock } from '../../components';
+import { useSelector } from 'react-redux';
+import { CiTrash, CiCirclePlus, CiCircleMinus } from 'react-icons/ci';
+import { BasketButtons, Button, H2, MainBlock } from '../../components';
+import { selectBasket } from '../../selectors';
 import styled from 'styled-components';
 
 const BasketContainer = ({ className }) => {
+	const basket = useSelector(selectBasket);
+
 	return (
 		<MainBlock className={className}>
 			<div className="block-products">
-				<div className="product-card">
-					<div className="image"></div>
-					<div className="information">
-						<div>
-							<H2 margin="0 0 40px 15px" fontsize="20px" children="Аромадиффузор" />
-							<div className="text">Цена:</div>
-							<div className="text">Количество:</div>
+				{basket.map((product) => (
+					<div className="product-card" key={product.id}>
+						<img src={product.image} alt="Фото товара" />
+						<div className="information">
+							<div>
+								<H2 margin="0 0 10px 15px" fontsize="20px" children={product.name} />
+								<div className="text">Цена: {product.price}</div>
+								<div className="text">Количество: {product.inBasket}</div>
+							</div>
+							<div className="button-block">
+								<div className="buttons-and-amount">
+									<BasketButtons product={product} />
+								</div>
+								<CiTrash className="delete-product" />
+							</div>
 						</div>
-						<Icon id="fa-trash-o" margin="130px 0 0 330px" fontSize="25px" />
 					</div>
-					<div className="delete-button"></div>
-				</div>
+				))}
 			</div>
 			<div className="basket-info">
 				<div className="quantity-of-products">
@@ -36,17 +47,43 @@ const BasketContainer = ({ className }) => {
 export const Basket = styled(BasketContainer)`
 	& .block-products {
 		width: 100%;
-		margin: 20px 15px;
+		margin: 0 15px 20px 15px;
 	}
 
 	& .product-card {
 		display: flex;
-		margin-bottom: 20px;
+		margin-top: 20px;
 		padding: 10px 15px;
 		border: 1px solid #d9d9d9;
 		border-radius: 7px;
 		width: 100%;
 		height: 185px;
+	}
+
+	& .button-block {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		margin-left: 10px;
+	}
+
+	& .buttons-and-amount {
+		display: flex;
+		width: 80px;
+		justify-content: space-evenly;
+	}
+
+	& .button {
+		font-size: 25px;
+	}
+
+	& .amount {
+		line-height: 25px;
+	}
+
+	& .delete-product {
+		font-size: 25px;
+		margin-left: 20px;
 	}
 
 	& .basket-info {
@@ -63,15 +100,15 @@ export const Basket = styled(BasketContainer)`
 	}
 
 	& .text {
-		margin: 30px 15px;
+		margin: 10px 15px;
 	}
 
 	& .sum {
 		margin: 15px 15px 25px 15px;
 	}
 
-	& .image {
-		width: 260px;
+	& img {
+		width: 200px;
 		height: 160px;
 		background-color: black;
 		border-radius: 7px;
@@ -79,7 +116,9 @@ export const Basket = styled(BasketContainer)`
 
 	& .information {
 		display: flex;
-		width: 520px;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 100%;
 		height: 160px;
 	}
 `;

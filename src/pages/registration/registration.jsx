@@ -5,7 +5,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Navigate } from 'react-router-dom';
 import { server } from '../../bff';
-import { Input, H2, Button } from '../../components';
+import { Input, H2, Button, ErrorMessage } from '../../components';
 import { selectUserRole } from '../../selectors';
 import { ROLE } from '../../bff/constants';
 import { setUser } from '../../actions';
@@ -99,7 +99,7 @@ const RegistrationContainer = ({ className }) => {
 					Регистрация
 				</Button>
 			</form>
-			{errorMessage && <div>{errorMessage}</div>}
+			{errorMessage && <ErrorMessage children={errorMessage} />}
 		</main>
 	);
 };

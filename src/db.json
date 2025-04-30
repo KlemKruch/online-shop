@@ -1,58 +1,29 @@
 {
 	"users": [
 		{
-			"id": "0",
+			"id": "8610",
 			"login": "zhenya@mail.ru",
 			"password": "zhenya123",
-			"role_id": 0
-		},
-		{
-			"id": "1",
-			"login": "katya@mail.ru",
-			"password": "katya123",
-			"role_id": 1
-		},
-		{
-			"id": "71e6",
-			"login": "joergje",
-			"password": "qazwsx",
-			"role_id": 2
-		},
-		{
-			"id": "c112",
-			"login": "nsw",
-			"password": "qwerty",
-			"role_id": 2
-		},
-		{
-			"id": "9d70",
-			"login": "njenber",
-			"password": "qazwsx",
-			"role_id": 2
-		},
-		{
-			"id": "5777",
-			"login": "maxim@nk.ru",
-			"password": "qwerty",
-			"role_id": 2
+			"role_id": "0",
+			"basket": []
 		}
 	],
 	"roles": [
 		{
 			"name": "Администратор",
-			"id": 0
+			"id": "0"
 		},
 		{
 			"name": "Модератор",
-			"id": 1
+			"id": "1"
 		},
 		{
 			"name": "Клиент",
-			"id": 2
+			"id": "2"
 		},
 		{
 			"name": "Гость",
-			"id": 3
+			"id": "3"
 		}
 	],
 	"products": [
@@ -201,153 +172,278 @@
 	],
 	"sessions": [
 		{
-			"id": "bc8d",
-			"hash": "0.43412387898017201770528572524199262261390686035156",
+			"id": "5578",
+			"hash": "0.28014247999610930595082436411757953464984893798828",
 			"user": {
-				"id": "0363",
-				"login": "jreo",
+				"id": "0",
+				"login": "zhenya@mail.ru",
+				"password": "zhenya123",
+				"role_id": 0,
+				"basket": []
+			}
+		},
+		{
+			"id": "e11f",
+			"hash": "0.38376587959993757603882613693713210523128509521484",
+			"user": {
+				"id": "0",
+				"login": "zhenya@mail.ru",
+				"password": "zhenya123",
+				"role_id": 0,
+				"basket": []
+			}
+		},
+		{
+			"id": "e37c",
+			"hash": "0.87868802759876896146806757315061986446380615234375",
+			"user": {
+				"id": "0",
+				"login": "zhenya@mail.ru",
+				"password": "zhenya123",
+				"role_id": 0,
+				"basket": []
+			}
+		},
+		{
+			"id": "c897",
+			"hash": "0.24995243434647518299129842489492148160934448242188",
+			"user": {
+				"id": "0",
+				"login": "zhenya@mail.ru",
+				"password": "zhenya123",
+				"role_id": 0,
+				"basket": []
+			}
+		},
+		{
+			"id": "d5ca",
+			"hash": "0.40039038773021640160720835410756990313529968261719",
+			"user": {
+				"id": "0",
+				"login": "zhenya@mail.ru",
+				"password": "zhenya123",
+				"role_id": 0,
+				"basket": []
+			}
+		},
+		{
+			"id": "45b5",
+			"hash": "0.21615426107613688877506774588255211710929870605469",
+			"user": {
+				"id": "0",
+				"login": "zhenya@mail.ru",
+				"password": "zhenya123",
+				"role_id": 0,
+				"in_basket": []
+			}
+		},
+		{
+			"id": "6a8f",
+			"hash": "0.31961467655466013759735233179526403546333312988281",
+			"user": {
+				"id": "0",
+				"login": "zhenya@mail.ru",
+				"password": "zhenya123",
+				"role_id": 0,
+				"in_basket": []
+			}
+		},
+		{
+			"id": "e520",
+			"hash": "0.99463562584003628597173474190640263259410858154297",
+			"user": {
+				"id": "0",
+				"login": "zhenya@mail.ru",
+				"password": "zhenya123",
+				"role_id": 0,
+				"in_basket": []
+			}
+		},
+		{
+			"id": "7d3c",
+			"hash": "0.95728909944906748208381941367406398057937622070313",
+			"user": {
+				"id": "0",
+				"login": "zhenya@mail.ru",
+				"password": "zhenya123",
+				"role_id": 0,
+				"in_basket": []
+			}
+		},
+		{
+			"id": "e3fb",
+			"hash": "0.31872978861789369453560993861174210906028747558594",
+			"user": {
+				"id": "0",
+				"login": "zhenya@mail.ru",
+				"password": "zhenya123",
+				"role_id": 0,
+				"in_basket": []
+			}
+		},
+		{
+			"id": "a0ae",
+			"hash": "0.21311778834786165859327411453705281019210815429688",
+			"user": {
+				"id": "0",
+				"login": "zhenya@mail.ru",
+				"password": "zhenya123",
+				"role_id": 0,
+				"in_basket": []
+			}
+		},
+		{
+			"id": "cd5a",
+			"hash": "0.96641553653979261895301533513702452182769775390625",
+			"user": {
+				"id": "0",
+				"login": "zhenya@mail.ru",
+				"password": "zhenya123",
+				"role_id": 0,
+				"in_basket": []
+			}
+		},
+		{
+			"id": "44f1",
+			"hash": "0.41632969202221092874793839655467309057712554931641",
+			"user": {
+				"id": "0",
+				"login": "zhenya@mail.ru",
+				"password": "zhenya123",
+				"role_id": 0,
+				"in_basket": []
+			}
+		},
+		{
+			"id": "a591",
+			"hash": "0.44366412431278168249093596386956050992012023925781",
+			"user": {
+				"id": "5138",
+				"login": "zhenya@mail.ru",
+				"password": "zhenya123",
+				"role_id": 2,
+				"basket": []
+			}
+		},
+		{
+			"id": "a03f",
+			"hash": "0.64673399813523546608706737970351241528987884521484",
+			"user": {
+				"id": "d759",
+				"login": "anton",
+				"password": "anton123",
+				"role_id": 2,
+				"basket": []
+			}
+		},
+		{
+			"id": "f881",
+			"hash": "0.51472994618831358071275872134719975292682647705078",
+			"user": {
+				"id": "f330",
+				"login": "zhenya@mail.ru",
+				"password": "zhenya123",
+				"role_id": 2,
+				"basket": []
+			}
+		},
+		{
+			"id": "34c0",
+			"hash": "0.72513439988808592318036971846595406532287597656250",
+			"user": {
+				"id": "8610",
+				"login": "zhenya@mail.ru",
+				"password": "zhenya123",
+				"role_id": 2,
+				"basket": []
+			}
+		},
+		{
+			"id": "8553",
+			"hash": "0.89588248168868589438318394968518987298011779785156",
+			"user": {
+				"id": "41b0",
+				"login": "fhwie",
+				"password": "zxcvbn",
+				"role_id": 2,
+				"basket": []
+			}
+		},
+		{
+			"id": "eea4",
+			"hash": "0.35108022836466457050619283108972012996673583984375",
+			"user": {
+				"id": "9e7c",
+				"login": "vklv",
 				"password": "qazwsx",
-				"role_id": 2
+				"role_id": 2,
+				"basket": []
 			}
 		},
 		{
-			"id": "bdcc",
-			"hash": "0.71200801171517735799199044777196832001209259033203",
+			"id": "8fe1",
+			"hash": "0.22080640872629708759689037833595648407936096191406",
 			"user": {
-				"id": "71e6",
-				"login": "joergje",
-				"password": "qazwsx",
-				"role_id": 2
+				"id": "bc01",
+				"login": "vlk",
+				"password": "qwert",
+				"role_id": 2,
+				"basket": []
 			}
 		},
 		{
-			"id": "c818",
-			"hash": "0.91085611890112339050773471171851269900798797607422",
+			"id": "5981",
+			"hash": "0.88786297792523660721286660191253758966922760009766",
 			"user": {
-				"id": "c112",
-				"login": "nsw",
-				"password": "qwerty",
-				"role_id": 2
-			}
-		},
-		{
-			"id": "1aaf",
-			"hash": "0.64143042893050017383416161464992910623550415039063",
-			"user": {
-				"id": "9d70",
-				"login": "njenber",
-				"password": "qazwsx",
-				"role_id": 2
-			}
-		},
-		{
-			"id": "a7f2",
-			"hash": "0.96782553441934737747942563146352767944335937500000",
-			"user": {
-				"id": "0",
+				"id": "8610",
 				"login": "zhenya@mail.ru",
 				"password": "zhenya123",
-				"role_id": 0
+				"role_id": 2,
+				"basket": []
 			}
 		},
 		{
-			"id": "4ca2",
-			"hash": "0.14272405249481345812512245174730196595191955566406",
+			"id": "5877",
+			"hash": "0.29165355829118333463867429600213654339313507080078",
 			"user": {
-				"id": "5777",
-				"login": "maxim@nk.ru",
-				"password": "qwerty",
-				"role_id": 2
-			}
-		},
-		{
-			"id": "2d2e",
-			"hash": "0.95768560785232947907275047327857464551925659179688",
-			"user": {
-				"id": "0",
+				"id": "8610",
 				"login": "zhenya@mail.ru",
 				"password": "zhenya123",
-				"role_id": 0
+				"role_id": 0,
+				"basket": []
 			}
 		},
 		{
-			"id": "2b4d",
-			"hash": "0.42145061547048645600455074600176885724067687988281",
+			"id": "6ed7",
+			"hash": "0.47987288872480393653319197255768813192844390869141",
 			"user": {
-				"id": "0",
+				"id": "8610",
 				"login": "zhenya@mail.ru",
 				"password": "zhenya123",
-				"role_id": 0
+				"role_id": 0,
+				"basket": []
 			}
 		},
 		{
-			"id": "6e83",
-			"hash": "0.41452236825447108525821704461122862994670867919922",
+			"id": "c9d8",
+			"hash": "0.38251030524223983420029071567114442586898803710938",
 			"user": {
-				"id": "0",
-				"login": "zhenya@mail.ru",
+				"id": "990",
+				"login": "jijo",
 				"password": "zhenya123",
-				"role_id": 0
+				"role_id": "1",
+				"basket": []
 			}
 		},
 		{
-			"id": "8140",
-			"hash": "0.23989494517066134449123637750744819641113281250000",
+			"id": "b079",
+			"hash": "0.64336262945088029674423069081967696547508239746094",
 			"user": {
-				"id": "0",
+				"id": "8610",
 				"login": "zhenya@mail.ru",
 				"password": "zhenya123",
-				"role_id": 0
-			}
-		},
-		{
-			"id": "f4ed",
-			"hash": "0.55242997520569192548833825640031136572360992431641",
-			"user": {
-				"id": "0",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 0
-			}
-		},
-		{
-			"id": "8d66",
-			"hash": "0.91962881645406324704339340314618311822414398193359",
-			"user": {
-				"id": "0",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 0
-			}
-		},
-		{
-			"id": "8802",
-			"hash": "0.27280812217793015683753310440806671977043151855469",
-			"user": {
-				"id": "0",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 0
-			}
-		},
-		{
-			"id": "82aa",
-			"hash": "0.94976869184270251711410537609481252729892730712891",
-			"user": {
-				"id": "0",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 0
-			}
-		},
-		{
-			"id": "1df6",
-			"hash": "0.99523755569455052416572016227291896939277648925781",
-			"user": {
-				"id": "0",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 0
+				"role_id": "0",
+				"basket": []
 			}
 		}
 	]

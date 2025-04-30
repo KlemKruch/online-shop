@@ -2,7 +2,7 @@ import { useLayoutEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 import { Header } from './components';
-import { Authorization, Basket, Main, Registration, ProductCard } from './pages';
+import { Authorization, Basket, Main, Registration, ProductCard, ProductsEditing, UsersEditing } from './pages';
 import { setUser } from './actions';
 import styled from 'styled-components';
 
@@ -49,8 +49,8 @@ export const OnlineStore = () => {
 					<Route path="/registration" element={<Registration />} />
 					<Route path="/product/:id" element={<ProductCard />} />
 					<Route path="/basket" element={<Basket />} />
-					<Route path="/product/editing" element={<div>Удаление/редактирование</div>} />
-					<Route path="/users" element={<div>Клиенты</div>} />
+					<Route path="/products/editing" element={<ProductsEditing />} />
+					<Route path="/users/editing" element={<UsersEditing />} />
 					<Route path="*" element={<div>Ошибка</div>} />
 				</Routes>
 			</Page>

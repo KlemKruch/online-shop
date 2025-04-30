@@ -4,3 +4,6 @@ export * from './logout';
 export * from './fetch-categories';
 export * from './fetch-products';
 export * from './fetch-product';
+export * from './remove-user';
+export * from './fetch-users';
+export * from './fetch-roles';

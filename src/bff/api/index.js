@@ -7,3 +7,7 @@ export * from './add-session';
 export * from './get-session';
 export * from './delete-session';
 export * from './get-product';
+export * from './delete-product';
+export * from './delete-user-from-server-async';
+export * from './get-roles';
+export * from './set-user-role';

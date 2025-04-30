@@ -1,35 +1,42 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { MainBlock, H2, Button } from '../../components';
-import { selectProduct, selectUserRole } from '../../selectors';
-import { loadedProductAsync } from '../../actions';
+import { MainBlock, H2, BasketButtons, Loader } from '../../components';
+import { selectIsLoading, selectProduct, selectUserRole } from '../../selectors';
+import { loadedProductAsync, setIsLoading } from '../../actions';
 import { ROLE } from '../../bff/constants';
 import styled from 'styled-components';
 
 const ProductContainer = ({ className }) => {
+	const isLoading = useSelector(selectIsLoading);
 	const product = useSelector(selectProduct);
 	const userRole = useSelector(selectUserRole);
+
 	const dispatch = useDispatch();
 	const params = useParams();
 
-	const { name, amount, image, price } = product;
+	const { name, image, price, inBasket } = product;
 
 	useEffect(() => {
 		dispatch(loadedProductAsync(params.id));
-	}, [dispatch, params.id]);
 
-	return (
+		dispatch(setIsLoading(false));
+	}, [dispatch, params.id, inBasket]);
+
+	const isGuest = userRole !== ROLE.GUEST ? true : false;
+
+	return isLoading ? (
+		<Loader />
+	) : (
 		<MainBlock className={className}>
 			<img src={image} alt="Фото товара" />
 			<div className="product-information">
 				<H2 children={name} margin="0 0 20px 0" />
 				<div className="product-description"></div>
-				<div className="text">Количество: {amount}шт</div>
 				<div className="text">Цена: {price}₽</div>
 				<div className="button-or-text-link">
-					{userRole !== ROLE.GUEST ? (
-						<Button margin="0 0 0 350px" children="Купить" />
+					{isGuest ? (
+						<BasketButtons product={product} />
 					) : (
 						<Link to="/registration" className="text-link">
 							Чтобы купить товар пройдите регистрацию на нашем сайте

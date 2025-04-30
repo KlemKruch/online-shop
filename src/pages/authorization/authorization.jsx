@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { server } from '../../bff';
 import { useEffect, useState } from 'react';
 import { useDispatch, useStore, useSelector } from 'react-redux';
-import { Input, H2, Button } from '../../components';
+import { Input, H2, Button, ErrorMessage } from '../../components';
 import { setUser } from '../../actions';
 import { selectUserRole } from '../../selectors';
 import { ROLE } from '../../bff/constants';
@@ -108,7 +108,7 @@ const AuthorizationContainer = ({ className }) => {
 				<Link to="/registration" className="registration">
 					Зарегистрироваться
 				</Link>
-				{errorMessage && <div>{errorMessage}</div>}
+				{errorMessage && <ErrorMessage children={errorMessage} />}
 			</form>
 		</main>
 	);
