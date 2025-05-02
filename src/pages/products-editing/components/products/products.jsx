@@ -36,7 +36,10 @@ const ProductsContainer = ({ className, id, name, amount, price, image, category
 				<input value={selectAmount} onChange={({ target }) => onChange(Number(target.value), setSelectAmount)} />
 				<input value={selectImage} onChange={({ target }) => onChange(String(target.value), setSelectImage)} />
 				<div className="buttons">
-					<CiFloppyDisk className="icon" onClick={() => onSaveProduct(id, selectName, selectAmount, selectPrice, selectImage, selectedCategoryId)} />
+					<CiFloppyDisk
+						className="icon"
+						onClick={() => onSaveProduct(id, selectName, selectAmount, selectPrice, selectImage, selectedCategoryId)}
+					/>
 					<CiTrash className="icon" onClick={() => deleteProduct(id)} />
 				</div>
 			</form>

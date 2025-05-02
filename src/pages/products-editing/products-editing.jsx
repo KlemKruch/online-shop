@@ -64,7 +64,7 @@ const ProductsEditingContainer = ({ className }) => {
 					)}
 				</div>
 			) : (
-				<AccessDenied children="Доступ только для модератора."/>
+				<AccessDenied children="Доступ только для модератора." />
 			)}
 		</MainBlock>
 	);

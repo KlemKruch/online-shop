@@ -4,7 +4,7 @@ import { Icon } from '../../../icon/icon';
 import { selectUserLogin, selectUserRole, selectSession } from '../../../../selectors';
 import { ROLE } from '../../../../bff/constants';
 import { logout } from '../../../../actions';
-import { CiLogin, CiShoppingBasket, CiLogout, CiUser, CiEdit } from "react-icons/ci";
+import { CiLogin, CiShoppingBasket, CiLogout, CiUser, CiEdit } from 'react-icons/ci';
 import styled from 'styled-components';
 
 const SpecialPanelContainer = ({ className }) => {
@@ -19,46 +19,37 @@ const SpecialPanelContainer = ({ className }) => {
 		sessionStorage.removeItem('userData');
 	};
 
-	console.log(role, ROLE.ADMIN);
-
-
 	return (
 		<div className={className}>
-			<div className='user-block'>
-			{role !== ROLE.GUEST ? (
-				<div className='user-login'>
-					{login}
-				</div>
-				) : null}
-			</div>
-				<div className='icon-block'>
+			<div className="user-block">{role !== ROLE.GUEST ? <div className="user-login">{login}</div> : null}</div>
+			<div className="icon-block">
 				{role !== ROLE.GUEST ? (
 					<>
-						{role === ROLE.ADMIN ?
+						{role === ROLE.ADMIN ? (
 							<Link to="/users/editing">
-								<CiEdit className='icon'/>
+								<CiEdit className="icon" />
 							</Link>
-						: role === ROLE.MODERATOR ?
+						) : role === ROLE.MODERATOR ? (
 							<Link to="products/editing">
-								<CiEdit className='icon'/>
+								<CiEdit className="icon" />
 							</Link>
-						: null}
+						) : null}
 						<Link to="/basket">
-							<CiShoppingBasket className='icon'/>
+							<CiShoppingBasket className="icon" />
 						</Link>
-						<CiLogout onClick={onLogout} className='icon' />
+						<CiLogout onClick={onLogout} className="icon" />
 					</>
-					) :
+				) : (
 					<>
 						<Link to="/registration">
-							<CiUser className='icon'/>
+							<CiUser className="icon" />
 						</Link>
 						<Link to="/authorization">
-							<CiLogin className='icon'/>
+							<CiLogin className="icon" />
 						</Link>
 					</>
-				}
-				</div>
+				)}
+			</div>
 		</div>
 	);
 };
@@ -80,7 +71,7 @@ export const SpecialPanel = styled(SpecialPanelContainer)`
 
 	.icon-block {
 		display: flex;
-    	justify-content: flex-end;
+		justify-content: flex-end;
 		align-items: flex-end;
 		height: 47.5px;
 	}
