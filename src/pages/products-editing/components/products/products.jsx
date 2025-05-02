@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { CiFloppyDisk, CiTrash } from 'react-icons/ci';
 import styled from 'styled-components';
-import { deleteProduct } from '../../../../bff/api';
+import { updateProduct } from '../../../../bff/operations/update-product';
 
-const ProductsContainer = ({ className, id, name, amount, price, image, category, categories }) => {
+const ProductsContainer = ({ className, id, name, amount, price, image, category, categories, deleteProduct }) => {
 	const [selectName, setSelectName] = useState(name);
 	const [selectAmount, setSelectAmount] = useState(amount);
 	const [selectPrice, setSelectPrice] = useState(price);
@@ -14,13 +14,8 @@ const ProductsContainer = ({ className, id, name, amount, price, image, category
 		functionToChangeState(value);
 	};
 
-	const onSave = (productId, selectName, selectAmount, selectPrice, selectImage, selectedCategoryId) => {
-		//сделать изменение товара
-	};
-
-	const onRemove = (productId) => {
-		deleteProduct(productId);
-		//не срабатываает удаление
+	const onSaveProduct = (productId, newName, newAmount, newPrice, newImage, newCategory) => {
+		updateProduct(productId, newName, newAmount, newPrice, newImage, newCategory);
 	};
 
 	return (
@@ -41,8 +36,8 @@ const ProductsContainer = ({ className, id, name, amount, price, image, category
 				<input value={selectAmount} onChange={({ target }) => onChange(Number(target.value), setSelectAmount)} />
 				<input value={selectImage} onChange={({ target }) => onChange(String(target.value), setSelectImage)} />
 				<div className="buttons">
-					<CiFloppyDisk className="icon" onClick={() => onSave(id)} />
-					<CiTrash className="icon" onClick={() => onRemove(id)} />
+					<CiFloppyDisk className="icon" onClick={() => onSaveProduct(id, selectName, selectAmount, selectPrice, selectImage, selectedCategoryId)} />
+					<CiTrash className="icon" onClick={() => deleteProduct(id)} />
 				</div>
 			</form>
 		</div>
@@ -81,6 +76,7 @@ export const Products = styled(ProductsContainer)`
 		margin-bottom: 10px;
 		margin-right: 9px;
 		width: 121px;
+		height: 35px;
 		padding: 5px;
 		text-align: center;
 		font-size: 13px;

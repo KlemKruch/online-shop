@@ -4,6 +4,7 @@ import { Icon } from '../../../icon/icon';
 import { selectUserLogin, selectUserRole, selectSession } from '../../../../selectors';
 import { ROLE } from '../../../../bff/constants';
 import { logout } from '../../../../actions';
+import { CiLogin, CiShoppingBasket, CiLogout, CiUser, CiEdit } from "react-icons/ci";
 import styled from 'styled-components';
 
 const SpecialPanelContainer = ({ className }) => {
@@ -18,35 +19,78 @@ const SpecialPanelContainer = ({ className }) => {
 		sessionStorage.removeItem('userData');
 	};
 
+	console.log(role, ROLE.ADMIN);
+
+
 	return (
 		<div className={className}>
+			<div className='user-block'>
 			{role !== ROLE.GUEST ? (
-				<Link to="/basket">
-					<Icon id="fa-shopping-basket" children="Корзина" />
-				</Link>
-			) : null}
-			{role === ROLE.GUEST ? (
-				<>
-					<Link to="/registration">
-						<Icon id="fa-user-circle-o" children="Регистрация" />
-					</Link>
-					<Link to="/authorization">
-						<Icon id="fa-sign-in" children="Войти" />
-					</Link>
-				</>
-			) : (
-				<>
-					<Icon id="fa-user-circle-o" children={login} />
-					<Icon id="fa-sign-in" children="Выйти" onClick={onLogout} />
-				</>
-			)}
+				<div className='user-login'>
+					{login}
+				</div>
+				) : null}
+			</div>
+				<div className='icon-block'>
+				{role !== ROLE.GUEST ? (
+					<>
+						{role === ROLE.ADMIN ?
+							<Link to="/users/editing">
+								<CiEdit className='icon'/>
+							</Link>
+						: role === ROLE.MODERATOR ?
+							<Link to="products/editing">
+								<CiEdit className='icon'/>
+							</Link>
+						: null}
+						<Link to="/basket">
+							<CiShoppingBasket className='icon'/>
+						</Link>
+						<CiLogout onClick={onLogout} className='icon' />
+					</>
+					) :
+					<>
+						<Link to="/registration">
+							<CiUser className='icon'/>
+						</Link>
+						<Link to="/authorization">
+							<CiLogin className='icon'/>
+						</Link>
+					</>
+				}
+				</div>
 		</div>
 	);
 };
 
 export const SpecialPanel = styled(SpecialPanelContainer)`
-	display: flex;
-	justify-content: right;
-	width: 250px;
-	margin-left: 11px;
+	width: 260px;
+
+	.user-block {
+		height: 47.5px;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+	}
+
+	.user-login {
+		font-size: 17px;
+		color: #bbb9ae;
+	}
+
+	.icon-block {
+		display: flex;
+    	justify-content: flex-end;
+		align-items: flex-end;
+		height: 47.5px;
+	}
+
+	.icon {
+		display: flex;
+		font-size: 30px;
+		margin-left: 10px;
+		&:hover {
+			cursor: pointer;
+		}
+	}
 `;

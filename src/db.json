@@ -1,450 +1,239 @@
 {
-	"users": [
-		{
-			"id": "8610",
-			"login": "zhenya@mail.ru",
-			"password": "zhenya123",
-			"role_id": "0",
-			"basket": []
-		}
-	],
-	"roles": [
-		{
-			"name": "Администратор",
-			"id": "0"
-		},
-		{
-			"name": "Модератор",
-			"id": "1"
-		},
-		{
-			"name": "Клиент",
-			"id": "2"
-		},
-		{
-			"name": "Гость",
-			"id": "3"
-		}
-	],
-	"products": [
-		{
-			"id": "001",
-			"name": "Тарелки",
-			"amount": 12,
-			"price": "1 000",
-			"image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-MPZ5RSa_-aFQNN2Ig_cUamJGcEhWGWwe_A&s",
-			"category": "5"
-		},
-		{
-			"id": "011",
-			"name": "Кружки",
-			"amount": 10,
-			"price": "1 000",
-			"image": "https://jz9czo0xs6.ru.scalesta-cdn.com/82mYT141oCZpda6YyS6XqHo8guM=/filters:format(webp)/https%3A%2F%2Fcomplexbar.ru%2Fimages%2Fblog%2F259%2Fkakie-bivaut-kruzhki-chaya0.jpg",
-			"category": "5"
-		},
-		{
-			"id": "002",
-			"name": "Комплект постельного белья",
-			"amount": 10,
-			"price": "4 500",
-			"image": "https://shop-cdn1-2.vigbo.tech/shops/77945/products/22313956/images/3-96bbc05ca581fed8632d0e8ee8bb9dfd.jpg",
-			"category": "4"
-		},
-		{
-			"id": "003",
-			"name": "Набор полотенец",
-			"amount": 10,
-			"price": "1 000",
-			"image": "https://rrbook.ru/wa-data/public/shop/products/32/26/2632/images/22423/22423.750@2x.jpeg",
-			"category": "3"
-		},
-		{
-			"id": "004",
-			"name": "Ковер",
-			"amount": 10,
-			"price": "5 000",
-			"image": "https://hoff.ru/upload/iblock/6a9/6a9c649a823d5e3f74b20f7e05ca8e5e.jpg",
-			"category": "2"
-		},
-		{
-			"id": "005",
-			"name": "Аромадифузор Пион",
-			"amount": 10,
-			"price": "900",
-			"image": "https://78.ru/images/uploads/media/2025/1/16/1737042603522.jpg",
-			"category": "1"
-		},
-		{
-			"id": "006",
-			"name": "Свечи ручной работы",
-			"amount": 10,
-			"price": "2 000",
-			"image": "https://img.freepik.com/premium-photo/handmade-scented-candles-glass-with-wooden-lid-soy-wax-candles-with-wooden-wick_136404-1419.jpg",
-			"category": "6"
-		},
-		{
-			"id": "007",
-			"name": "Игрушка 'Муся'",
-			"amount": 10,
-			"price": "500",
-			"image": "https://oozor.ru/images/detailed/648/0a704faee46d24b940a00a8d5df326a3.jpg",
-			"category": "7"
-		},
-		{
-			"id": "008",
-			"name": "Кошачья лежанка",
-			"amount": 10,
-			"price": "3 000",
-			"image": "https://storage-api.petstory.ru/resize/1000x1000x80/ba/8c/2c/ba8c2cfb00cb4234b63507d530f7df18.jpeg",
-			"category": "8"
-		},
-		{
-			"id": "009",
-			"name": "Стеклоочиститель",
-			"amount": 10,
-			"price": "600",
-			"image": "https://leso-torg.ru/upload/iblock/ebd/p8lowtv3aycd6qf45f5qtaw9cukf0tq2.png",
-			"category": "9"
-		},
-		{
-			"id": "010",
-			"name": "Шторы кухонные",
-			"amount": 10,
-			"price": "20 000",
-			"image": "https://blog.mebelion.ru/wp-content/uploads/2020/06/3-4.jpg",
-			"category": "10"
-		}
-	],
-	"categories": [
-		{
-			"id": "1",
-			"name": "Аромадиффузоры"
-		},
-		{
-			"id": "14",
-			"name": "Декор"
-		},
-		{
-			"id": "2",
-			"name": "Ковры"
-		},
-		{
-			"id": "12",
-			"name": "Мебель"
-		},
-		{
-			"id": "13",
-			"name": "Контейнеры"
-		},
-		{
-			"id": "3",
-			"name": "Полотенца"
-		},
-		{
-			"id": "4",
-			"name": "Постельное белье"
-		},
-		{
-			"id": "5",
-			"name": "Посуда"
-		},
-		{
-			"id": "6",
-			"name": "Свечи"
-		},
-		{
-			"id": "7",
-			"name": "Товары для детей"
-		},
-		{
-			"id": "8",
-			"name": "Товары для животных"
-		},
-		{
-			"id": "9",
-			"name": "Химия для уборки"
-		},
-		{
-			"id": "10",
-			"name": "Шторы"
-		}
-	],
-	"sessions": [
-		{
-			"id": "5578",
-			"hash": "0.28014247999610930595082436411757953464984893798828",
-			"user": {
-				"id": "0",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 0,
-				"basket": []
-			}
-		},
-		{
-			"id": "e11f",
-			"hash": "0.38376587959993757603882613693713210523128509521484",
-			"user": {
-				"id": "0",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 0,
-				"basket": []
-			}
-		},
-		{
-			"id": "e37c",
-			"hash": "0.87868802759876896146806757315061986446380615234375",
-			"user": {
-				"id": "0",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 0,
-				"basket": []
-			}
-		},
-		{
-			"id": "c897",
-			"hash": "0.24995243434647518299129842489492148160934448242188",
-			"user": {
-				"id": "0",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 0,
-				"basket": []
-			}
-		},
-		{
-			"id": "d5ca",
-			"hash": "0.40039038773021640160720835410756990313529968261719",
-			"user": {
-				"id": "0",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 0,
-				"basket": []
-			}
-		},
-		{
-			"id": "45b5",
-			"hash": "0.21615426107613688877506774588255211710929870605469",
-			"user": {
-				"id": "0",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 0,
-				"in_basket": []
-			}
-		},
-		{
-			"id": "6a8f",
-			"hash": "0.31961467655466013759735233179526403546333312988281",
-			"user": {
-				"id": "0",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 0,
-				"in_basket": []
-			}
-		},
-		{
-			"id": "e520",
-			"hash": "0.99463562584003628597173474190640263259410858154297",
-			"user": {
-				"id": "0",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 0,
-				"in_basket": []
-			}
-		},
-		{
-			"id": "7d3c",
-			"hash": "0.95728909944906748208381941367406398057937622070313",
-			"user": {
-				"id": "0",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 0,
-				"in_basket": []
-			}
-		},
-		{
-			"id": "e3fb",
-			"hash": "0.31872978861789369453560993861174210906028747558594",
-			"user": {
-				"id": "0",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 0,
-				"in_basket": []
-			}
-		},
-		{
-			"id": "a0ae",
-			"hash": "0.21311778834786165859327411453705281019210815429688",
-			"user": {
-				"id": "0",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 0,
-				"in_basket": []
-			}
-		},
-		{
-			"id": "cd5a",
-			"hash": "0.96641553653979261895301533513702452182769775390625",
-			"user": {
-				"id": "0",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 0,
-				"in_basket": []
-			}
-		},
-		{
-			"id": "44f1",
-			"hash": "0.41632969202221092874793839655467309057712554931641",
-			"user": {
-				"id": "0",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 0,
-				"in_basket": []
-			}
-		},
-		{
-			"id": "a591",
-			"hash": "0.44366412431278168249093596386956050992012023925781",
-			"user": {
-				"id": "5138",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 2,
-				"basket": []
-			}
-		},
-		{
-			"id": "a03f",
-			"hash": "0.64673399813523546608706737970351241528987884521484",
-			"user": {
-				"id": "d759",
-				"login": "anton",
-				"password": "anton123",
-				"role_id": 2,
-				"basket": []
-			}
-		},
-		{
-			"id": "f881",
-			"hash": "0.51472994618831358071275872134719975292682647705078",
-			"user": {
-				"id": "f330",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 2,
-				"basket": []
-			}
-		},
-		{
-			"id": "34c0",
-			"hash": "0.72513439988808592318036971846595406532287597656250",
-			"user": {
-				"id": "8610",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 2,
-				"basket": []
-			}
-		},
-		{
-			"id": "8553",
-			"hash": "0.89588248168868589438318394968518987298011779785156",
-			"user": {
-				"id": "41b0",
-				"login": "fhwie",
-				"password": "zxcvbn",
-				"role_id": 2,
-				"basket": []
-			}
-		},
-		{
-			"id": "eea4",
-			"hash": "0.35108022836466457050619283108972012996673583984375",
-			"user": {
-				"id": "9e7c",
-				"login": "vklv",
-				"password": "qazwsx",
-				"role_id": 2,
-				"basket": []
-			}
-		},
-		{
-			"id": "8fe1",
-			"hash": "0.22080640872629708759689037833595648407936096191406",
-			"user": {
-				"id": "bc01",
-				"login": "vlk",
-				"password": "qwert",
-				"role_id": 2,
-				"basket": []
-			}
-		},
-		{
-			"id": "5981",
-			"hash": "0.88786297792523660721286660191253758966922760009766",
-			"user": {
-				"id": "8610",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 2,
-				"basket": []
-			}
-		},
-		{
-			"id": "5877",
-			"hash": "0.29165355829118333463867429600213654339313507080078",
-			"user": {
-				"id": "8610",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 0,
-				"basket": []
-			}
-		},
-		{
-			"id": "6ed7",
-			"hash": "0.47987288872480393653319197255768813192844390869141",
-			"user": {
-				"id": "8610",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": 0,
-				"basket": []
-			}
-		},
-		{
-			"id": "c9d8",
-			"hash": "0.38251030524223983420029071567114442586898803710938",
-			"user": {
-				"id": "990",
-				"login": "jijo",
-				"password": "zhenya123",
-				"role_id": "1",
-				"basket": []
-			}
-		},
-		{
-			"id": "b079",
-			"hash": "0.64336262945088029674423069081967696547508239746094",
-			"user": {
-				"id": "8610",
-				"login": "zhenya@mail.ru",
-				"password": "zhenya123",
-				"role_id": "0",
-				"basket": []
-			}
-		}
-	]
+  "users": [
+    {
+      "id": "8610",
+      "login": "Zhenya",
+      "password": "zhenya123",
+      "role_id": 0,
+      "basket": []
+    },
+    {
+      "id": "9076",
+      "login": "Ekaterina",
+      "password": "zhenya123",
+      "role_id": 1,
+      "basket": []
+    },
+    {
+      "id": "f138",
+      "login": "Andrey",
+      "password": "andrey12",
+      "role_id": 2,
+      "basket": []
+    }
+  ],
+  "roles": [
+    {
+      "name": "Администратор",
+      "id": 0
+    },
+    {
+      "name": "Модератор",
+      "id": 1
+    },
+    {
+      "name": "Клиент",
+      "id": 2
+    },
+    {
+      "name": "Гость",
+      "id": 3
+    }
+  ],
+  "products": [
+    {
+      "id": "001",
+      "name": "Тарелочки",
+      "amount": 3,
+      "price": "500",
+      "image": "https://ae04.alicdn.com/kf/S093d71258c7740e3b4d7df8150e79cc6U.jpg",
+      "category": "5"
+    },
+    {
+      "id": "002",
+      "name": "Комплект постельного белья",
+      "amount": 10,
+      "price": "4 500",
+      "image": "https://shop-cdn1-2.vigbo.tech/shops/77945/products/22313956/images/3-96bbc05ca581fed8632d0e8ee8bb9dfd.jpg",
+      "category": "4"
+    },
+    {
+      "id": "003",
+      "name": "Набор полотенец",
+      "amount": 10,
+      "price": "1 000",
+      "image": "https://rrbook.ru/wa-data/public/shop/products/32/26/2632/images/22423/22423.750@2x.jpeg",
+      "category": "3"
+    },
+    {
+      "id": "004",
+      "name": "Ковер",
+      "amount": 10,
+      "price": "5 000",
+      "image": "https://hoff.ru/upload/iblock/6a9/6a9c649a823d5e3f74b20f7e05ca8e5e.jpg",
+      "category": "2"
+    },
+    {
+      "id": "005",
+      "name": "Аромадифузор Пион",
+      "amount": 10,
+      "price": "900",
+      "image": "https://78.ru/images/uploads/media/2025/1/16/1737042603522.jpg",
+      "category": "1"
+    },
+    {
+      "id": "006",
+      "name": "Свечи ручной работы",
+      "amount": 10,
+      "price": "2 000",
+      "image": "https://img.freepik.com/premium-photo/handmade-scented-candles-glass-with-wooden-lid-soy-wax-candles-with-wooden-wick_136404-1419.jpg",
+      "category": "6"
+    },
+    {
+      "id": "007",
+      "name": "Игрушка 'Муся'",
+      "amount": 10,
+      "price": "500",
+      "image": "https://oozor.ru/images/detailed/648/0a704faee46d24b940a00a8d5df326a3.jpg",
+      "category": "7"
+    },
+    {
+      "id": "008",
+      "name": "Кошачья лежанка",
+      "amount": 10,
+      "price": "3 000",
+      "image": "https://storage-api.petstory.ru/resize/1000x1000x80/ba/8c/2c/ba8c2cfb00cb4234b63507d530f7df18.jpeg",
+      "category": "8"
+    },
+    {
+      "id": "010",
+      "name": "Шторы кухонные",
+      "amount": 10,
+      "price": "20 000",
+      "image": "https://blog.mebelion.ru/wp-content/uploads/2020/06/3-4.jpg",
+      "category": "10"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Аромадиффузоры"
+    },
+    {
+      "id": "14",
+      "name": "Декор"
+    },
+    {
+      "id": "2",
+      "name": "Ковры"
+    },
+    {
+      "id": "12",
+      "name": "Мебель"
+    },
+    {
+      "id": "13",
+      "name": "Контейнеры"
+    },
+    {
+      "id": "3",
+      "name": "Полотенца"
+    },
+    {
+      "id": "4",
+      "name": "Постельное белье"
+    },
+    {
+      "id": "5",
+      "name": "Посуда"
+    },
+    {
+      "id": "6",
+      "name": "Свечи"
+    },
+    {
+      "id": "7",
+      "name": "Товары для детей"
+    },
+    {
+      "id": "8",
+      "name": "Товары для животных"
+    },
+    {
+      "id": "9",
+      "name": "Химия для уборки"
+    },
+    {
+      "id": "10",
+      "name": "Шторы"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "b9c2",
+      "hash": "0.55770345707450141858885217516217380762100219726563",
+      "user": {
+        "id": "8610",
+        "login": "zhenya@mail.ru",
+        "password": "zhenya123",
+        "role_id": "0",
+        "basket": []
+      }
+    },
+    {
+      "id": "5e3b",
+      "hash": "0.13627961965193391424833180280984379351139068603516",
+      "user": {
+        "id": "8610",
+        "login": "zhenya@mail.ru",
+        "password": "zhenya123",
+        "role_id": "0",
+        "basket": []
+      }
+    },
+    {
+      "id": "6e92",
+      "hash": "0.48645276301022133402796043810667470097541809082031",
+      "user": {
+        "id": "8610",
+        "login": "zhenya@mail.ru",
+        "password": "zhenya123",
+        "role_id": 0,
+        "basket": []
+      }
+    },
+    {
+      "id": "8678",
+      "hash": "0.89720975460668794809748760599177330732345581054688",
+      "user": {
+        "id": "8610",
+        "login": "Zhenya",
+        "password": "zhenya123",
+        "role_id": 0,
+        "basket": []
+      }
+    },
+    {
+      "id": "ed3a",
+      "hash": "0.03714833285217555847168569016503170132637023925781",
+      "user": {
+        "id": "9076",
+        "login": "Ekaterina",
+        "password": "zhenya123",
+        "role_id": 1,
+        "basket": []
+      }
+    },
+    {
+      "id": "5b4c",
+      "hash": "0.22664155867058655147161516651976853609085083007813",
+      "user": {
+        "id": "f138",
+        "login": "Andrey",
+        "password": "andrey12",
+        "role_id": 2,
+        "basket": []
+      }
+    }
+  ]
 }

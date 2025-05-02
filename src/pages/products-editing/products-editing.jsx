@@ -1,6 +1,6 @@
 import { useState, useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCategories, fetchProducts } from '../../bff/operations';
+import { fetchCategories, fetchProducts, removeProduct } from '../../bff/operations';
 import { setIsLoading } from '../../actions';
 import { selectIsLoading, selectUserRole } from '../../selectors';
 import { H2, MainBlock, Loader, AccessDenied } from '../../components';
@@ -11,11 +11,12 @@ import { ROLE } from '../../bff/constants';
 const ProductsEditingContainer = ({ className }) => {
 	const [products, setProducts] = useState([]);
 	const [categories, setCategories] = useState([]);
+	const [shouldUpdateUserList, setShouldUpdateUserList] = useState(false);
 
 	const isLoading = useSelector(selectIsLoading);
 	const userRole = useSelector(selectUserRole);
 
-	const isAdmin = userRole === ROLE.ADMIN ? true : false;
+	const isAdmin = userRole === ROLE.MODERATOR;
 
 	const dispatch = useDispatch();
 
@@ -24,11 +25,17 @@ const ProductsEditingContainer = ({ className }) => {
 		fetchCategories().then(({ res }) => setCategories(res));
 
 		dispatch(setIsLoading(false));
-	}, [dispatch]);
+	}, [dispatch, shouldUpdateUserList]);
+
+	const deleteProduct = (productId) => {
+		removeProduct(productId).then(() => {
+			setShouldUpdateUserList(!shouldUpdateUserList);
+		});
+	};
 	return (
-		<div>
+		<MainBlock>
 			{isAdmin ? (
-				<MainBlock>
+				<div>
 					{isLoading ? (
 						<Loader />
 					) : (
@@ -49,16 +56,17 @@ const ProductsEditingContainer = ({ className }) => {
 										image={image}
 										category={category}
 										categories={categories}
+										deleteProduct={deleteProduct}
 									/>
 								))}
 							</div>
 						</div>
 					)}
-				</MainBlock>
+				</div>
 			) : (
-				<AccessDenied />
+				<AccessDenied children="Доступ только для модератора."/>
 			)}
-		</div>
+		</MainBlock>
 	);
 };
 
@@ -81,7 +89,7 @@ export const ProductsEditing = styled(ProductsEditingContainer)`
 	}
 
 	.edit-and-delete-form {
-		width: 805px;
+		width: 750px;
 		margin-left: 20px;
 	}
 `;

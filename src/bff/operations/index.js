@@ -7,3 +7,4 @@ export * from './fetch-product';
 export * from './remove-user';
 export * from './fetch-users';
 export * from './fetch-roles';
+export * from './remove-product';
