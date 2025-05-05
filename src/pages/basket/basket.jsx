@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
-import { CiTrash, CiCirclePlus, CiCircleMinus } from 'react-icons/ci';
-import { BasketButtons, Button, H2, MainBlock } from '../../components';
+import { CiTrash } from 'react-icons/ci';
+import { BasketButtons, Button, H2, Icon, MainBlock } from '../../components';
 import { selectBasket } from '../../selectors';
 import styled from 'styled-components';
 
@@ -23,7 +23,9 @@ const BasketContainer = ({ className }) => {
 								<div className="buttons-and-amount">
 									<BasketButtons product={product} />
 								</div>
-								<CiTrash className="delete-product" />
+								<Icon size="25px" margin="0 0 0 20px">
+									<CiTrash />
+								</Icon>
 							</div>
 						</div>
 					</div>
@@ -79,11 +81,6 @@ export const Basket = styled(BasketContainer)`
 
 	& .amount {
 		line-height: 25px;
-	}
-
-	& .delete-product {
-		font-size: 25px;
-		margin-left: 20px;
 	}
 
 	& .basket-info {

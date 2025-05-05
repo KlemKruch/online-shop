@@ -1,27 +1,22 @@
 import styled from 'styled-components';
 
-const IconContainer = ({ className, id, children, ...props }) => {
+const IconContainer = ({ className, children, ...props }) => {
 	return (
 		<div className={className} {...props}>
-			<i className={`fa ${id}`} aria-hidden="true"></i>
-			{children ? <div>{children}</div> : null}
+			{children}
 		</div>
 	);
 };
 
 export const Icon = styled(IconContainer)`
-	margin: ${({ margin = '50px 10px' }) => margin};
+	display: flex;
+	margin: ${({ margin = '0 0 0 10px' }) => margin};
 	cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
-	font-weight: 100;
-	font-size: 15px;
+	font-size: ${({ size = '30px' }) => size};
 	color: ${({ disabled }) => (disabled ? '#ccc' : ' #5c5740')};
 	text-align: center;
 
 	&:hover {
 		color: ${({ disabled }) => (disabled ? '#ccc' : ' #917070')};
-	}
-
-	& i {
-		font-size: ${({ fontSize = '20px' }) => fontSize};
 	}
 `;

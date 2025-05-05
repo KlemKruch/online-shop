@@ -1,13 +1,42 @@
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { CiSearch } from 'react-icons/ci';
 import { Input } from '../../../input/input';
-import { Icon } from '../../../icon/icon';
+import { setSearchInput, START_SEARCH, STOP_SEARCH } from '../../../../actions';
 import styled from 'styled-components';
+import { Icon } from '../../../icon/icon';
 
 const SearchContainer = ({ className }) => {
+	const dispatch = useDispatch();
+
+	const [value, setValue] = useState('');
+
+	const onChange = ({ target }) => {
+		dispatch(setSearchInput(target.value));
+		setValue(target.value);
+		dispatch(STOP_SEARCH());
+	};
+
+	const startSearch = () => {
+		dispatch(START_SEARCH());
+		setValue('');
+	};
+
 	return (
 		<div className={className}>
-			<Input height="34px" width="100%" radius="20px" border="1px solid white" />
-			<button>
-				<Icon id="fa-search" margin="0" />
+			<Input
+				height="34px"
+				width="100%"
+				radius="20px"
+				border="1px solid white"
+				onChange={onChange}
+				value={value}
+				placeholder="Введите название товара..."
+			/>
+			<button onClick={() => startSearch()}>
+				<Icon margin="0">
+					<CiSearch />
+				</Icon>
 			</button>
 		</div>
 	);

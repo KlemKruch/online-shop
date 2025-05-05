@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { CiLogin, CiShoppingBasket, CiLogout, CiUser, CiEdit } from 'react-icons/ci';
 import { Icon } from '../../../icon/icon';
 import { selectUserLogin, selectUserRole, selectSession } from '../../../../selectors';
 import { ROLE } from '../../../../bff/constants';
 import { logout } from '../../../../actions';
-import { CiLogin, CiShoppingBasket, CiLogout, CiUser, CiEdit } from 'react-icons/ci';
 import styled from 'styled-components';
 
 const SpecialPanelContainer = ({ className }) => {
@@ -27,25 +27,37 @@ const SpecialPanelContainer = ({ className }) => {
 					<>
 						{role === ROLE.ADMIN ? (
 							<Link to="/users/editing">
-								<CiEdit className="icon" />
+								<Icon>
+									<CiEdit />
+								</Icon>
 							</Link>
 						) : role === ROLE.MODERATOR ? (
 							<Link to="products/editing">
-								<CiEdit className="icon" />
+								<Icon>
+									<CiEdit />
+								</Icon>
 							</Link>
 						) : null}
 						<Link to="/basket">
-							<CiShoppingBasket className="icon" />
+							<Icon>
+								<CiShoppingBasket />
+							</Icon>
 						</Link>
-						<CiLogout onClick={onLogout} className="icon" />
+						<Icon>
+							<CiLogout onClick={onLogout} />
+						</Icon>
 					</>
 				) : (
 					<>
 						<Link to="/registration">
-							<CiUser className="icon" />
+							<Icon>
+								<CiUser />
+							</Icon>
 						</Link>
 						<Link to="/authorization">
-							<CiLogin className="icon" />
+							<Icon>
+								<CiLogin />
+							</Icon>
 						</Link>
 					</>
 				)}
@@ -65,6 +77,7 @@ export const SpecialPanel = styled(SpecialPanelContainer)`
 	}
 
 	.user-login {
+		margin: 15px 4px 0 0;
 		font-size: 17px;
 		color: #bbb9ae;
 	}
@@ -73,15 +86,6 @@ export const SpecialPanel = styled(SpecialPanelContainer)`
 		display: flex;
 		justify-content: flex-end;
 		align-items: flex-end;
-		height: 47.5px;
-	}
-
-	.icon {
-		display: flex;
-		font-size: 30px;
-		margin-left: 10px;
-		&:hover {
-			cursor: pointer;
-		}
+		height: 38px;
 	}
 `;

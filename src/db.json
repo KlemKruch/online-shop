@@ -20,24 +20,31 @@
 			"password": "andrey12",
 			"role_id": 2,
 			"basket": []
+		},
+		{
+			"id": "f323",
+			"login": "Vika",
+			"password": "vika123",
+			"role_id": 2,
+			"basket": []
 		}
 	],
 	"roles": [
 		{
 			"name": "Администратор",
-			"id": 0
+			"id": "0"
 		},
 		{
 			"name": "Модератор",
-			"id": 1
+			"id": "1"
 		},
 		{
 			"name": "Клиент",
-			"id": 2
+			"id": "2"
 		},
 		{
 			"name": "Гость",
-			"id": 3
+			"id": "3"
 		}
 	],
 	"products": [
@@ -232,6 +239,83 @@
 				"login": "Andrey",
 				"password": "andrey12",
 				"role_id": 2,
+				"basket": []
+			}
+		},
+		{
+			"id": "6be6",
+			"hash": "0.96550267096234387853570524384849704802036285400391",
+			"user": {
+				"id": "8610",
+				"login": "Zhenya",
+				"password": "zhenya123",
+				"role_id": 0,
+				"basket": []
+			}
+		},
+		{
+			"id": "71fc",
+			"hash": "0.33779733456494598353714309268980287015438079833984",
+			"user": {
+				"id": "8610",
+				"login": "Zhenya",
+				"password": "zhenya123",
+				"role_id": 0,
+				"basket": []
+			}
+		},
+		{
+			"id": "48a4",
+			"hash": "0.48408076431827484764625069146859459578990936279297",
+			"user": {
+				"id": "f323",
+				"login": "Vika",
+				"password": "vika123",
+				"role_id": 2,
+				"basket": []
+			}
+		},
+		{
+			"id": "27dd",
+			"hash": "0.92108029505433441919137749209767207503318786621094",
+			"user": {
+				"id": "f323",
+				"login": "Vika",
+				"password": "vika123",
+				"role_id": 2,
+				"basket": []
+			}
+		},
+		{
+			"id": "eb60",
+			"hash": "0.01248674516136760725970589192002080380916595458984",
+			"user": {
+				"id": "8610",
+				"login": "Zhenya",
+				"password": "zhenya123",
+				"role_id": 0,
+				"basket": []
+			}
+		},
+		{
+			"id": "fb13",
+			"hash": "0.97874601220767920572995990369236096739768981933594",
+			"user": {
+				"id": "8610",
+				"login": "Zhenya",
+				"password": "zhenya123",
+				"role_id": 0,
+				"basket": []
+			}
+		},
+		{
+			"id": "d25f",
+			"hash": "0.25226186129597061302831662032986059784889221191406",
+			"user": {
+				"id": "8610",
+				"login": "Zhenya",
+				"password": "zhenya123",
+				"role_id": 0,
 				"basket": []
 			}
 		}

@@ -1,31 +1,34 @@
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Icon, Loader } from '../../components';
 import { ProductCard, Category } from './components';
 import { fetchCategories, fetchProducts } from '../../bff/operations';
 import { sortAlphabetically, sortByCategory } from '../../utils';
-import { setIsLoading } from '../../actions';
-import { selectIsLoading } from '../../selectors';
+import { setIsLoading, setProducts, STOP_SEARCH } from '../../actions';
+import { selectIsLoading, selectIsSearch, selectProducts, selectSearchInput } from '../../selectors';
+import { CiSliderHorizontal } from 'react-icons/ci';
 import styled from 'styled-components';
 
 const MainContainer = ({ className }) => {
 	const isLoading = useSelector(selectIsLoading);
+	const searchInput = useSelector(selectSearchInput);
+	const productsFromServer = useSelector(selectProducts);
+	const isSearch = useSelector(selectIsSearch);
 
 	const dispatch = useDispatch();
 
 	const [categories, setCategories] = useState([]);
-	const [productsFromServer, setProductsFromServer] = useState([]);
 	const [sortProductsFromCategory, setSortProductsFromCategory] = useState([]);
 	const [sortProductsFromAlphabetically, setSortProductsFromAlphabetically] = useState([]);
 	const [isSortFromCategory, setIsSortFromCategory] = useState(false);
 	const [isSortFromAlphabetically, setIsSortFromAlphabetically] = useState(false);
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		fetchCategories().then(({ res }) => setCategories(res));
-		fetchProducts().then(({ res }) => setProductsFromServer(res));
+		fetchProducts().then(({ res }) => dispatch(setProducts(res)));
 
 		dispatch(setIsLoading(false));
-	}, []);
+	}, [isSortFromAlphabetically, dispatch]);
 
 	const sortProductFromCategory = (idCategory) => {
 		setIsSortFromAlphabetically(false);
@@ -44,12 +47,13 @@ const MainContainer = ({ className }) => {
 		}
 
 		setSortProductsFromAlphabetically(sortAlphabetically(arrayForSorting));
-		setIsSortFromAlphabetically(true);
+		setIsSortFromAlphabetically(!isSortFromAlphabetically);
 	};
 
 	const resetAllSorting = () => {
 		setIsSortFromCategory(false);
 		setIsSortFromAlphabetically(false);
+		dispatch(STOP_SEARCH());
 	};
 
 	const products = isSortFromAlphabetically
@@ -58,12 +62,18 @@ const MainContainer = ({ className }) => {
 			? sortProductsFromCategory
 			: productsFromServer;
 
+	const searchProducts = productsFromServer.filter((product) => {
+		return product.name.toLowerCase().includes(searchInput.toLowerCase());
+	});
+
 	return isLoading ? (
 		<Loader />
 	) : (
 		<main className={className}>
 			<div className="sorting">
-				<Icon id="fa-sort-amount-desc" margin="0 50px 0 0" fontSize="15px" onClick={() => sortProductsAlphabetically()} />
+				<Icon onClick={() => sortProductsAlphabetically()} size="25px" margin="0 23px 0 0">
+					<CiSliderHorizontal />
+				</Icon>
 			</div>
 			<div className="product-categories">
 				<h5 className="categories-name" onClick={() => resetAllSorting()}>
@@ -74,7 +84,7 @@ const MainContainer = ({ className }) => {
 				))}
 			</div>
 			<div className="products-block">
-				{products.map((product) => (
+				{(isSearch ? searchProducts : products).map((product) => (
 					<ProductCard key={product.id} product={product} />
 				))}
 			</div>
@@ -83,20 +93,20 @@ const MainContainer = ({ className }) => {
 };
 
 export const Main = styled(MainContainer)`
-	& .sorting {
+	.sorting {
 		display: flex;
 		width: 1100px;
 		justify-content: right;
 	}
 
-	& h5 {
+	h5 {
 		font-weight: 200;
 		font-size: 16px;
 		margin: 0 10px;
 		cursor: pointer;
 	}
 
-	& .product-categories {
+	.product-categories {
 		background-color: white;
 		border-radius: 7px;
 		width: 200px;
@@ -106,13 +116,13 @@ export const Main = styled(MainContainer)`
 		margin-top: 10px;
 	}
 
-	& .categories-name {
+	.categories-name {
 		padding: 10px 0;
 		margin: 0;
 		border-bottom: 1px solid #d9d9d9;
 	}
 
-	& .products-block {
+	.products-block {
 		display: flex;
 		flex-wrap: wrap;
 		margin-left: 200px;

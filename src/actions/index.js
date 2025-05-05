@@ -8,3 +8,7 @@ export * from './set-product-data';
 export * from './loaded-product-async';
 export * from './increase-amount';
 export * from './set-is-loading';
+export * from './set-search-input';
+export * from './set-products';
+export * from './start-search';
+export * from './stop-search';

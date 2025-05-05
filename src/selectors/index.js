@@ -1,4 +1,3 @@
-export * from './select-categories';
 export * from './select-user-role';
 export * from './select-user-login';
 export * from './select-session';
@@ -7,3 +6,6 @@ export * from './select-basket';
 export * from './select-user';
 export * from './select-app';
 export * from './select-is-loading';
+export * from './select-search-input';
+export * from './select-products';
+export * from './select-is-search';
