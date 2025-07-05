@@ -8,8 +8,8 @@ export const sessions = {
 
 		return hash;
 	},
-	async remove(hash) {
-		const session = getSession(hash);
+	async remove(id) {
+		const session = await getSession(id);
 
 		if (!session) {
 			return;

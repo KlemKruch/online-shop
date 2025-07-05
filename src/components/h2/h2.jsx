@@ -9,4 +9,5 @@ export const H2 = styled(H2Container)`
 	font-size: ${({ fontsize = '23px' }) => fontsize};
 	color: ${({ color = '#825a5a' }) => color};
 	font-weight: 100;
+	text-decoration: underline;
 `;

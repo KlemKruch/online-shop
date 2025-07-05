@@ -69,7 +69,7 @@ const MainContainer = ({ className }) => {
 	return isLoading ? (
 		<Loader />
 	) : (
-		<main className={className}>
+		<div className={className}>
 			<div className="sorting">
 				<Icon onClick={() => sortProductsAlphabetically()} size="25px" margin="0 23px 0 0">
 					<CiSliderHorizontal />
@@ -88,7 +88,7 @@ const MainContainer = ({ className }) => {
 					<ProductCard key={product.id} product={product} />
 				))}
 			</div>
-		</main>
+		</div>
 	);
 };
 

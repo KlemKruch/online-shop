@@ -4,9 +4,9 @@ import { fetchCategories, fetchProducts, removeProduct } from '../../bff/operati
 import { setIsLoading } from '../../actions';
 import { selectIsLoading, selectUserRole } from '../../selectors';
 import { H2, MainBlock, Loader, AccessDenied } from '../../components';
-import { FormToAddProduct, Headers, Products } from './components';
-import styled from 'styled-components';
+import { FormToAddProduct, Products } from './components';
 import { ROLE } from '../../bff/constants';
+import styled from 'styled-components';
 
 const ProductsEditingContainer = ({ className }) => {
 	const [products, setProducts] = useState([]);
@@ -45,12 +45,12 @@ const ProductsEditingContainer = ({ className }) => {
 								<FormToAddProduct categories={categories} />
 							</div>
 							<div className="edit-and-delete-form">
-								<Headers />
-								{products.map(({ id, name, amount, price, image, category }) => (
+								{products.map(({ id, name, amount, price, image, category, description }) => (
 									<Products
 										key={id}
 										id={id}
 										name={name}
+										description={description}
 										amount={amount}
 										price={price}
 										image={image}
@@ -86,6 +86,7 @@ export const ProductsEditing = styled(ProductsEditingContainer)`
 		border-radius: 7px;
 		padding: 10px;
 		width: 290px;
+		height: 500px;
 	}
 
 	.edit-and-delete-form {

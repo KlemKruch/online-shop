@@ -11,8 +11,6 @@ const initialUserState = {
 };
 
 export const userReducer = (state = initialUserState, action) => {
-	let newBasket = [...state.basket];
-
 	switch (action.type) {
 		case ACTION_TYPE.SET_USER: {
 			return {
@@ -23,22 +21,12 @@ export const userReducer = (state = initialUserState, action) => {
 		case ACTION_TYPE.LOGOUT: {
 			return initialUserState;
 		}
-		case ACTION_TYPE.ADD_TO_BASKET:
-			newBasket.push(action.payload);
-			return {
-				...state,
-				basket: newBasket,
-			};
-		case ACTION_TYPE.INCREASE_AMOUNT:
+		case ACTION_TYPE.GET_BASKET: {
 			return {
 				...state,
 				basket: action.payload,
 			};
-		case ACTION_TYPE.DELETE_FROM_BASKET:
-			return {
-				...state,
-				basket: action.payload,
-			};
+		}
 		default:
 			return state;
 	}

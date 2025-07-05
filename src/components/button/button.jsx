@@ -25,8 +25,8 @@ export const Button = styled(ButtonContainer)`
 		background-color: #f9f8f3;
 		color: #825a5a;
 		border: 0;
-		-webkit-box-shadow: -1px 0px 16px 12px rgba(130, 90, 90, 0.23);
-		-moz-box-shadow: -1px 0px 16px 12px rgba(130, 90, 90, 0.23);
-		box-shadow: -1px 0px 16px 12px rgba(130, 90, 90, 0.23);
+		-webkit-box-shadow: 1px 0px 7px 5px rgba(130, 90, 90, 0.3);
+		-moz-box-shadow: 1px 0px 7px 5px rgba(130, 90, 90, 0.3);
+		box-shadow: 1px 0px 7px 5px rgba(130, 90, 90, 0.3);
 	}
 `;

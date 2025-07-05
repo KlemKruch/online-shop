@@ -8,3 +8,5 @@ export * from './remove-user';
 export * from './fetch-users';
 export * from './fetch-roles';
 export * from './remove-product';
+export * from './fetch-user-basket';
+export * from './add-new-product';

@@ -9,3 +9,4 @@ export * from './select-is-loading';
 export * from './select-search-input';
 export * from './select-products';
 export * from './select-is-search';
+export * from './select-user-id';

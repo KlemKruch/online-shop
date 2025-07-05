@@ -2,21 +2,34 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { CiLogin, CiShoppingBasket, CiLogout, CiUser, CiEdit } from 'react-icons/ci';
 import { Icon } from '../../../icon/icon';
-import { selectUserLogin, selectUserRole, selectSession } from '../../../../selectors';
+import { selectUserLogin, selectUserRole, selectUserId } from '../../../../selectors';
 import { ROLE } from '../../../../bff/constants';
-import { logout } from '../../../../actions';
+import { sessions } from '../../../../bff/sessions';
+import { useLayoutEffect, useState } from 'react';
+import { fetchSessions } from '../../../../bff/operations/fetch-sessions';
 import styled from 'styled-components';
+import { logout } from '../../../../actions';
 
 const SpecialPanelContainer = ({ className }) => {
+	const [allSessions, setAllSessions] = useState([]);
+	const userId = useSelector(selectUserId);
+
+	useLayoutEffect(() => {
+		fetchSessions().then(({ res }) => setAllSessions(res));
+	}, []);
+
 	const role = useSelector(selectUserRole);
 	const login = useSelector(selectUserLogin);
-	const session = useSelector(selectSession);
+
 	const dispatch = useDispatch();
 
-	const onLogout = () => {
-		dispatch(logout(session));
+	const currentSession = allSessions.find((data) => data.user.id === userId);
 
+	const onLogout = async (currentSessionId) => {
+		await sessions.remove(currentSessionId);
 		sessionStorage.removeItem('userData');
+
+		dispatch(logout());
 	};
 
 	return (
@@ -44,7 +57,7 @@ const SpecialPanelContainer = ({ className }) => {
 							</Icon>
 						</Link>
 						<Icon>
-							<CiLogout onClick={onLogout} />
+							<CiLogout onClick={() => onLogout(currentSession.id)} />
 						</Icon>
 					</>
 				) : (

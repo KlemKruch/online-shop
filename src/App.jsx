@@ -1,8 +1,8 @@
 import { useLayoutEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
-import { Header } from './components';
-import { Authorization, Basket, Main, Registration, ProductCard, ProductsEditing, UsersEditing } from './pages';
+import { Header, AccessDenied } from './components';
+import { Authorization, Basket, Main, Registration, ProductCard, ProductsEditing, UsersEditing, Favorites } from './pages';
 import { setUser } from './actions';
 import styled from 'styled-components';
 
@@ -51,7 +51,8 @@ export const OnlineStore = () => {
 					<Route path="/basket" element={<Basket />} />
 					<Route path="/products/editing" element={<ProductsEditing />} />
 					<Route path="/users/editing" element={<UsersEditing />} />
-					<Route path="*" element={<div>Ошибка</div>} />
+					<Route path="/favorites" element={<Favorites />} />
+					<Route path="*" element={<AccessDenied children="Такой страницы не существует" />} />
 				</Routes>
 			</Page>
 		</AppColumn>

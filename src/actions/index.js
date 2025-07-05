@@ -1,8 +1,7 @@
 export * from './set-session';
 export * from './action-type';
 export * from './set-user';
-export * from './logout';
-export * from './add-to-basket';
+export * from './get-basket';
 export * from './delete-from-basket';
 export * from './set-product-data';
 export * from './loaded-product-async';
@@ -12,3 +11,4 @@ export * from './set-search-input';
 export * from './set-products';
 export * from './start-search';
 export * from './stop-search';
+export * from './logout';

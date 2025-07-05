@@ -1,75 +1,52 @@
-import { useState, useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CiCirclePlus, CiCircleMinus } from 'react-icons/ci';
-import { selectBasket } from '../../selectors';
-import { deleteFromBasket } from '../../actions';
-import { decreaseAmount, increaseAmount, addProductToBasket } from '../../utils';
-import { Button } from '../button/button';
+import { selectUserId, selectBasket } from '../../selectors';
+import { updateBasket } from '../../bff/api';
+import { getBasket } from '../../actions';
 import styled from 'styled-components';
 
 const BasketButtonsContainer = ({ className, product }) => {
-	const [quantityProductsInBasket, setQuantityProductsInBasket] = useState(0);
-	const [productToBeRemoved, setProductToBeRemoved] = useState('');
-	const [productInBasket, setProductInBasket] = useState(false);
+	const userId = useSelector(selectUserId);
 	const basket = useSelector(selectBasket);
 	const dispatch = useDispatch();
 
-	console.log(basket);
+	const productInBasket = basket.find(({ id }) => id === product.id);
 
-	useLayoutEffect(() => {
-		if (quantityProductsInBasket === 0) {
-			const newBasket = basket.filter((productInBasket) => productInBasket.id !== productToBeRemoved.id);
-			dispatch(deleteFromBasket(newBasket));
-		}
-	}, [quantityProductsInBasket, dispatch]);
-
-	// const productInBaskett = basket.map((productInBasket) => productInBasket.id === product.id ? true : false)
-	// console.log(productInBasket);
-
-	const increaseAmountProduct = (productData) => {
-		basket.map((product) => {
+	const increaseQuantityProductInTheBasket = (productData) => {
+		const newBasket = basket.map((product) => {
 			if (product.id === productData.id) {
-				increaseAmount(productData);
-				setQuantityProductsInBasket(productData.inBasket);
+				const newQuantity = product.quantityInBasket + 1;
+				return { ...product, quantityInBasket: newQuantity };
 			}
+			return product;
 		});
+
+		updateBasket(userId, newBasket);
+		dispatch(getBasket(newBasket));
 	};
 
-	const removeProductFromBasket = (productData) => {
-		basket.map((product) => {
+	const decreaseQuantityProductInTheBasket = (productData) => {
+		const newBasket = basket.map((product) => {
 			if (product.id === productData.id) {
-				if (product.inBasket > 0) {
-					decreaseAmount(productData);
-					setProductToBeRemoved(productData);
-					setQuantityProductsInBasket(productToBeRemoved.inBasket);
-				}
-			}
-		});
-	};
+				const newQuantity = product.quantityInBasket - 1;
 
-	const addProduct = (productData, dispatch) => {
-		basket.map((product) => {
-			if (product.id === productData.id) {
-				increaseAmount(productData);
+				return { ...product, quantityInBasket: newQuantity };
 			}
-			return;
+			return product
 		});
 
-		addProductToBasket(productData, dispatch);
-		setProductInBasket(true);
+		const readyBasket = newBasket.filter(({ quantityInBasket }) => quantityInBasket !== 0 )
+
+		dispatch(getBasket(readyBasket));
+		updateBasket(userId, readyBasket);
+
 	};
 
 	return (
 		<div className={className}>
-			{productInBasket ? (
-				<>
-					<CiCircleMinus onClick={() => removeProductFromBasket(product)} />
-					<div className="text">{product.inBasket}</div>
-					<CiCirclePlus onClick={() => increaseAmountProduct(product)} />
-				</>
-			) : (
-				<Button children="Купить" onClick={() => addProduct(product, dispatch)} />
-			)}
+			<CiCircleMinus onClick={() => decreaseQuantityProductInTheBasket(product)} />
+			<div className="amount">{productInBasket.quantityInBasket}</div>
+			<CiCirclePlus onClick={() => increaseQuantityProductInTheBasket(product)} />
 		</div>
 	);
 };
@@ -79,13 +56,12 @@ export const BasketButtons = styled(BasketButtonsContainer)`
 	justify-content: space-between;
 	align-items: center;
 	font-size: 28px;
-	width: 100px;
 	padding: 0 7px;
 	border-radius: 5px;
 	color: #5c5740;
 
-	& .text {
+	.amount {
 		font-size: 15px;
-		margin: 5px 0;
+		margin: 10px 10px;
 	}
 `;

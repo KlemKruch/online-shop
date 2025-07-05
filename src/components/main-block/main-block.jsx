@@ -6,6 +6,7 @@ const MainBlockContainer = ({ className, children }) => {
 
 export const MainBlock = styled(MainBlockContainer)`
 	margin: ${({ margin = '20px 0' }) => margin};
+	padding: ${({ padding = ' 0' }) => padding};
 	justify-content: space-between;
 	display: flex;
 	background-color: white;
