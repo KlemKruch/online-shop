@@ -80,14 +80,14 @@ const BasketContainer = ({ className }) => {
 
 export const Basket = styled(BasketContainer)`
 	.block-products {
-		width: 790px;
-		margin: 0 15px 20px 15px;
+		max-width: 790px;
+		margin: 0 15px 20px 0;
 	}
 
 	.basket-info {
 		border: 1px solid #d9d9d9;
 		border-radius: 7px;
-		width: 260px;
+		max-width: 260px;
 		height: 350px;
 	}
 

@@ -72,41 +72,56 @@ const MainContainer = ({ className }) => {
 		<Loader />
 	) : (
 		<div className={className}>
-			<div className="sorting-and-searching">
-				<div className="search">
-					<Search />
+			<div className="categories">
+				<div className="product-categories">
+					<h5 className="categories-name" onClick={() => resetAllSorting()}>
+						Категории
+					</h5>
+					{categories.map(({ name, id }) => (
+						<Category key={id} name={name} onClick={() => sortProductFromCategory(id)} />
+					))}
 				</div>
-				<Icon onClick={() => sortProductsAlphabetically()} size="25px" margin="0 23px 0 0">
-					<CiSliderHorizontal />
-				</Icon>
 			</div>
-			<div className="product-categories">
-				<h5 className="categories-name" onClick={() => resetAllSorting()}>
-					Категории
-				</h5>
-				{categories.map(({ name, id }) => (
-					<Category key={id} name={name} onClick={() => sortProductFromCategory(id)} />
-				))}
-			</div>
-			<div className="products-block">
-				{(isSearch ? searchProducts : products).map((product) => (
-					<ProductCard key={product._id} product={product} />
-				))}
+			<div>
+				<div className="sorting-and-searching">
+					<div className="search">
+						<Search />
+					</div>
+					<Icon onClick={() => sortProductsAlphabetically()} size="25px" margin="0 23px 0 10px">
+						<CiSliderHorizontal />
+					</Icon>
+				</div>
+				<div className="products-block">
+					{(isSearch ? searchProducts : products).map((product) => (
+						<ProductCard key={product._id} product={product} />
+					))}
+				</div>
 			</div>
 		</div>
 	);
 };
 
 export const Main = styled(MainContainer)`
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+
+	.categories {
+		max-width: 200px;
+		position: fixed;
+	}
+
 	.sorting-and-searching {
 		display: flex;
-		width: 1100px;
+		max-width: 900px;
 		justify-content: flex-end;
 		margin-bottom: 10px;
+		margin-left: 200px;
 	}
 
 	.search {
 		width: 665px;
+		margin-left: 25px;
 	}
 
 	h5 {
@@ -122,8 +137,7 @@ export const Main = styled(MainContainer)`
 		width: 200px;
 		height: 528px;
 		text-align: center;
-		position: fixed;
-		margin-top: 10px;
+		margin-top: 0;
 	}
 
 	.categories-name {
@@ -136,5 +150,6 @@ export const Main = styled(MainContainer)`
 		display: flex;
 		flex-wrap: wrap;
 		margin-left: 200px;
+		max-width: 900px;
 	}
 `;

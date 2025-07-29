@@ -14,26 +14,26 @@ const ImageContainer = ({ className }) => {
 };
 
 const Image = styled(ImageContainer)`
-	& .logo {
+	.logo {
 		display: flex;
 		height: 70px;
 		padding: 0;
 	}
 
-	& img {
+	img {
 		height: 70px;
 		margin: -4px 0;
 		padding: 0;
 	}
 
-	& .large-text {
+	.large-text {
 		color: #917070;
 		margin: 30px 0 0 10px;
 		height: 30px;
 		font-weight: 100;
 	}
 
-	& h3 {
+	h3 {
 		margin: 0;
 		color: #917070;
 		font-weight: 200;

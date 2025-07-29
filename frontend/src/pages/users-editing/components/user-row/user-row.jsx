@@ -37,15 +37,17 @@ export const UserRow = styled(UserRowContainer)`
 	width: 100%;
 	border-bottom: 1px solid #d9d9d9;
 	padding: 10px;
+	justify-content: space-between;
 
 	.row {
 		width: 186px;
 		text-align: center;
+		word-break: break-all;
 	}
 
 	.buttons-block {
 		margin-left: 12px;
-		width: 186px;
+		width: 90px;
 		text-align: center;
 	}
 

@@ -64,27 +64,29 @@ const ProductContainer = ({ className }) => {
 		<Loader />
 	) : (
 		<MainBlock className={className}>
-			<img src={image} alt="Фото товара" />
-			<div className="product-information">
-				<H2 children={name} margin="0 0 20px 0" />
-				<div className="product-description">{description}</div>
-				<div className="text">Цена: {price}₽</div>
-				<div>
-					{isGuest ? (
-						<div className="block-button">
-							{!productIsInTheBasket ? (
-								<Button children="Купить" onClick={() => addProduct(product, userId)} />
-							) : (
-								<Link to="/basket">
-									<div className="text-link-to-basket">Товар в корзине</div>
-								</Link>
-							)}
-						</div>
-					) : (
-						<Link to="/registration" className="text-link">
-							Чтобы купить товар пройдите регистрацию на нашем сайте
-						</Link>
-					)}
+			<div className="main">
+				<img src={image} alt="Фото товара" />
+				<div className="product-information">
+					<H2 children={name} margin="0 0 20px 0" />
+					<div className="product-description">{description}</div>
+					<div className="text">Цена: {price}₽</div>
+					<div>
+						{isGuest ? (
+							<div className="block-button">
+								{!productIsInTheBasket ? (
+									<Button children="Купить" onClick={() => addProduct(product, userId)} />
+								) : (
+									<Link to="/basket">
+										<div className="text-link-to-basket">Товар в корзине</div>
+									</Link>
+								)}
+							</div>
+						) : (
+							<Link to="/registration" className="text-link">
+								Чтобы купить товар пройдите регистрацию на нашем сайте
+							</Link>
+						)}
+					</div>
 				</div>
 			</div>
 		</MainBlock>
@@ -92,6 +94,10 @@ const ProductContainer = ({ className }) => {
 };
 
 export const ProductCard = styled(ProductContainer)`
+	.main {
+		display: flex;
+	}
+
 	img {
 		width: 440px;
 		height: 350px;

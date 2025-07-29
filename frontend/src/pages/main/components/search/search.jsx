@@ -43,7 +43,7 @@ const SearchContainer = ({ className }) => {
 
 export const Search = styled(SearchContainer)`
 	display: flex;
-	width: 500px;
+	max-width: 500px;
 	height: 35px;
 	border: 1px solid white;
 	border-radius: 20px;

@@ -10,7 +10,7 @@ export const MainBlock = styled(MainBlockContainer)`
 	justify-content: space-between;
 	display: flex;
 	background-color: white;
-	width: 100%;
+	max-width: 100%;
 	border-radius: 7px;
 	color: rgb(58, 55, 39);
 `;
